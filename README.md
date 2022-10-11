@@ -48,3 +48,4 @@ Figma : https://www.figma.com/file/n5yZnC246ZSzhx5z3ARTo3/hunter_twitter?node-id
 
 ER図
 <img width="705" alt="スクリーンショット 2022-10-11 15 11 41" src="https://user-images.githubusercontent.com/74085271/195010352-aac68b71-e7a5-4e9a-ac93-f80057e2c0f8.png">
+
