@@ -47,4 +47,4 @@ README〜ER図作成：10/13 〆切
 Figma : https://www.figma.com/file/n5yZnC246ZSzhx5z3ARTo3/hunter_twitter?node-id=0%3A1
 
 ER図
-<img width="686" alt="スクリーンショット 2022-10-11 11 39 43" src="https://user-images.githubusercontent.com/74085271/194985078-36c0df0f-1272-4ac9-afaa-4322298c5965.png">
+<img width="705" alt="スクリーンショット 2022-10-11 15 11 41" src="https://user-images.githubusercontent.com/74085271/195010352-aac68b71-e7a5-4e9a-ac93-f80057e2c0f8.png">
