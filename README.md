@@ -43,3 +43,6 @@ README〜ER図作成：10/13 〆切
 β版をRUNTEQ内リリース（MVP）：11/15〆切  
 本番リリース：12月初旬
 
+## 画面遷移図
+Figma : https://www.figma.com/file/n5yZnC246ZSzhx5z3ARTo3/hunter_twitter?node-id=0%3A1
+
