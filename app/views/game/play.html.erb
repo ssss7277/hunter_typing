@@ -1,2 +1,15 @@
-<h1>Game#play</h1>
-<p>Find me in app/views/game/play.html.erb</p>
+<html>
+<head>
+<script>
+window.addEventListener("keydown", push_Keydown);
+function push_Keydown(event){
+	let keyCode = event.key;
+
+document.getElementById("start").innerHTML = keyCode + "を押しました";
+}
+</script>
+</head>
+<body>
+<h1 id="start">キーを押してごらんよ</h1>
+</body>
+</html>
