@@ -1,15 +1,18 @@
 current directory: /Users/nishimura/workspace/runteq/hunter_typing/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
-/usr/local/opt/ruby/bin/ruby -I /usr/local/Cellar/ruby/3.1.2_1/lib/ruby/3.1.0 -r ./siteconf20221012-15610-87r7aw.rb extconf.rb
+/Users/nishimura/.rbenv/versions/3.1.0/bin/ruby -I /Users/nishimura/.rbenv/versions/3.1.0/lib/ruby/site_ruby/3.1.0 extconf.rb
 creating Makefile
 
 current directory: /Users/nishimura/workspace/runteq/hunter_typing/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
-make DESTDIR\= clean
+make DESTDIR\= sitearchdir\=./.gem.20230112-48375-kft48i sitelibdir\=./.gem.20230112-48375-kft48i clean
 
 current directory: /Users/nishimura/workspace/runteq/hunter_typing/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
-make DESTDIR\=
+make DESTDIR\= sitearchdir\=./.gem.20230112-48375-kft48i sitelibdir\=./.gem.20230112-48375-kft48i
 compiling bootsnap.c
 linking shared-object bootsnap/bootsnap.bundle
 
 current directory: /Users/nishimura/workspace/runteq/hunter_typing/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
-make DESTDIR\= install
-/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20221012-15610-ev36py/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230112-48375-kft48i sitelibdir\=./.gem.20230112-48375-kft48i install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20230112-48375-kft48i/bootsnap
+
+current directory: /Users/nishimura/workspace/runteq/hunter_typing/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230112-48375-kft48i sitelibdir\=./.gem.20230112-48375-kft48i clean
