@@ -1,4 +1,5 @@
-# # **hunter_typing**
+
+# **hunter_typing**
 
 ## サービス概要
 ハンター文字のタイピングゲームです。
@@ -40,8 +41,10 @@ README〜ER図作成：10/13 〆切
 β版をRUNTEQ内リリース（MVP）：11/15〆切  
 本番リリース：12月初旬
 
+
 ## 画面遷移図
 Figma : https://www.figma.com/file/STmtwcjxBZSgIm7BIwwBct/hunter_typing?node-id=0%3A1
 
 ## ER図
 draw.io : ![ER図_hunter_typing](https://user-images.githubusercontent.com/74085271/194563297-2171a571-0c01-460a-b870-286d721d7136.png)
+
