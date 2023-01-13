@@ -1,15 +1,26 @@
 <html>
 <head>
+
 <script>
+
+let question = ["ごん","きるあ","れおりお"];
+let q_no = Math.floor( Math.random() * question.length);
+
+
 window.addEventListener("keydown", push_Keydown);
 function push_Keydown(event){
 	let keyCode = event.key;
 
-document.getElementById("start").innerHTML = keyCode + "を押しました";
+document.getElementById("push").innerHTML = keyCode + "をおしました";
+document.getElementById("start").innerHTML = question[q_no];
+
 }
 </script>
 </head>
+
 <body>
-<h1 id="start">キーをおしてごらんよ</h1>
+<h1 id="push">なにかぼたんをおしてください</h1>
+<h1 id="start">もんだい</h1>
 </body>
+
 </html>
