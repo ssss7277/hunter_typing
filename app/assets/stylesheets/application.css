@@ -21,17 +21,23 @@
   /* src: url('/assets/abcdefg.ttf') format("truetype"); */
 }
 
-div{
+.hunter{
   font-family: 'hunter';
-  color:red;
+  color:green;
 }
 
 body{
-  font-family: 'hunter';
-  color:red;
+  font-family: 'sherif';
+  color:green;
 }
 
-h1{
-  color:red;
+h2{
+  font-family: 'sherif';
+  color:green;
+}
+
+p{
+  color:green;
   font-family: "hunter";
+  font-size: xx-large;
 }
