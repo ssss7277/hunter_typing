@@ -18,7 +18,6 @@
 @font-face{
   font-family: "hunter";
   src: url('hunter.ttf') format('truetype');
-  /* src: url('/assets/abcdefg.ttf') format("truetype"); */
 }
 
 .hunter{
