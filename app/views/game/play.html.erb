@@ -380,52 +380,68 @@ let q_len = question[q_no].length;
 let jan_q_len = jan_question[q_no].length;
 let typing_characters = [];
 
+
+const ok_sounds_url = "<%=audio_path('/ok.mp3')%>"
+const ok = new Audio(ok_sounds_url);
+const bad_sounds_url = "<%=audio_path('/bad.mp3')%>"
+const bad = new Audio(bad_sounds_url);
+const good_sounds_url = "<%=audio_path('/good.mp3')%>"
+const good = new Audio(good_sounds_url);
+
+
 window.addEventListener("keydown", push_Keydown);
 
 function push_Keydown(event){
 
-let keyCode = event.key;
-//スタート時に問題を表示する
-if (q_i == 0){
-  document.getElementById("start").innerHTML = question[q_no].substring(q_i, q_len);
-  document.getElementById("jan").innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
-  document.getElementsByClassName("hunter")[0].innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
-}
-
-//正解の入力をされた場合
-if (question[q_no].charAt(q_i) == keyCode) {
-  //keycodeをtyping_character配列に入れる
-  typing_characters.push(keyCode);
-  q_i++;
-  document.getElementById("start").innerHTML = question[q_no].substring(q_i, q_len);
-
-  //typing_characters配列の要素がひらがなになっているならば
-  var Linking = typing_characters.join("");
-  console.log(Linking);
-  console.log(jan_question[jan_q_no].substring(jan_q_i, jan_q_i+1));
-
-  if (r2h(Linking) == jan_question[jan_q_no].substring(jan_q_i, jan_q_i+1)){
-    // jan_question配列の一文字目の表示を消す
-    jan_q_i++;
-    document.getElementById("jan").innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
-    document.getElementsByClassName("hunter")[0].innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
-    //typing_charactersを空っぽにする
-    typing_characters = [];
-  }
-
-  //最後まで打ち終わった場合
-  if (q_len == q_i){
-    q_no = Math.floor( Math.random() * question.length);
-    jan_q_no = q_no;
-    q_i = 0;
-    jan_q_i = 0;
-    q_len = question[q_no].length;
-    jan_q_len = jan_question[q_no].length;
+  let keyCode = event.key;
+  //スタート時に問題を表示する
+  if (q_i == 0){
     document.getElementById("start").innerHTML = question[q_no].substring(q_i, q_len);
     document.getElementById("jan").innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
     document.getElementsByClassName("hunter")[0].innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
   }
-}
+
+  //正解の入力をされた場合
+  if (question[q_no].charAt(q_i) == keyCode) {
+    good.currentTime = 0;
+    good.play();
+    //keycodeをtyping_character配列に入れる
+    typing_characters.push(keyCode);
+    q_i++;
+    document.getElementById("start").innerHTML = question[q_no].substring(q_i, q_len);
+
+    //typing_characters配列の要素がひらがなになっているならば
+    good.play();
+    var Linking = typing_characters.join("");
+    console.log(Linking);
+    console.log(jan_question[jan_q_no].substring(jan_q_i, jan_q_i+1));
+
+    if (r2h(Linking) == jan_question[jan_q_no].substring(jan_q_i, jan_q_i+1)){
+      // jan_question配列の一文字目の表示を消す
+      jan_q_i++;
+      document.getElementById("jan").innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
+      document.getElementsByClassName("hunter")[0].innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
+      //typing_charactersを空っぽにする
+      typing_characters = [];
+    }
+
+    //最後まで打ち終わった場合
+    if (q_len == q_i){
+      ok.play();
+      q_no = Math.floor( Math.random() * question.length);
+      jan_q_no = q_no;
+      q_i = 0;
+      jan_q_i = 0;
+      q_len = question[q_no].length;
+      jan_q_len = jan_question[q_no].length;
+      document.getElementById("start").innerHTML = question[q_no].substring(q_i, q_len);
+      document.getElementById("jan").innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
+      document.getElementsByClassName("hunter")[0].innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
+    }
+  }else{
+		bad.currentTime = 0;
+    bad.play();
+  }
 }
 
 </script>
