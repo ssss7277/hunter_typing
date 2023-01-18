@@ -392,6 +392,13 @@
 	var timer_ID;
 	var time = 60;
 
+	// 得点
+	let score = 0;
+	let state = true;
+	function dispScore() {
+		document.getElementById("totalScore").textContent = score;
+	}
+
 	window.addEventListener("keydown", push_Keydown);
 
 	function push_Keydown(event){
@@ -399,7 +406,7 @@
 		let keyCode = event.key;
 		//スタート時に問題を表示する
 		if (q_i == 0){
-			document.getElementById("start").innerHTML = question[q_no].substring(q_i, q_len);
+			document.getElementById("rome").innerHTML = question[q_no].substring(q_i, q_len);
 			document.getElementById("jan").innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
 			document.getElementsByClassName("hunter")[0].innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
 		}
@@ -411,7 +418,7 @@
 			//keycodeをtyping_character配列に入れる
 			typing_characters.push(keyCode);
 			q_i++;
-			document.getElementById("start").innerHTML = question[q_no].substring(q_i, q_len);
+			document.getElementById("rome").innerHTML = question[q_no].substring(q_i, q_len);
 
 			//typing_characters配列の要素がひらがなになっているならば
 			good.play();
@@ -431,13 +438,15 @@
 			//最後まで打ち終わった場合
 			if (q_len == q_i){
 				ok.play();
+				score++;
+				dispScore();
 				q_no = Math.floor( Math.random() * question.length);
 				jan_q_no = q_no;
 				q_i = 0;
 				jan_q_i = 0;
 				q_len = question[q_no].length;
 				jan_q_len = jan_question[q_no].length;
-				document.getElementById("start").innerHTML = question[q_no].substring(q_i, q_len);
+				document.getElementById("rome").innerHTML = question[q_no].substring(q_i, q_len);
 				document.getElementById("jan").innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
 				document.getElementsByClassName("hunter")[0].innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
 			}
@@ -467,14 +476,35 @@
 		}, {
 		once: true
 	});
+
+	// 表示切り替えボタン
+	function janSwitching() {
+		if (document.all.jan.style.display == "none") {
+			document.all.jan.style.display = "block"
+		} else {
+			document.all.jan.style.display = "none"
+		}
+	}
+
+	function romeSwitching() {
+		if (document.all.rome.style.display == "none") {
+			document.all.rome.style.display = "block"
+		} else {
+			document.all.rome.style.display = "none"
+		}
+	}
+
 	</script>
 	</head>
 	<body>
 		<center>
 		<h1>残り時間<output></output>秒</h1>
-		<h1 id="start" class="text">何かキーを押して下さい</h1>
+		<h1 id="rome" class="text">何かキーを押して下さい</h1>
 		<h2 id="jan" class="text">にほんご</h2>
 		<p class="hunter text">はんたーもじ</p>
+		<h1>score: <span id= "totalScore">0</span></h1>
+		<input type="button" value="日本語表示" onclick="janSwitching()">
+		<input type="button" value="ローマ字表示" onclick="romeSwitching()">
 		</center>
 	</body>
 </html>
