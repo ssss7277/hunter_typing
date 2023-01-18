@@ -380,13 +380,17 @@ let q_len = question[q_no].length;
 let jan_q_len = jan_question[q_no].length;
 let typing_characters = [];
 
-
+// 効果音
 const ok_sounds_url = "<%=audio_path('/ok.mp3')%>"
 const ok = new Audio(ok_sounds_url);
 const bad_sounds_url = "<%=audio_path('/bad.mp3')%>"
 const bad = new Audio(bad_sounds_url);
 const good_sounds_url = "<%=audio_path('/good.mp3')%>"
 const good = new Audio(good_sounds_url);
+
+// カウントダウン
+var timer_ID;
+var time = 60;
 
 
 window.addEventListener("keydown", push_Keydown);
@@ -444,11 +448,35 @@ function push_Keydown(event){
   }
 }
 
+// カウントダウンの設定
+function minusTime() {
+	time--;
+	dispTime();
+	if (time==0) {
+	clearInterval(timer_ID);
+	}
+}
+
+function dispTime() {
+	document.getElementsByTagName("output")[0].innerHTML = time;
+}
+
+// キー入力するとカウントダウンが開始
+window.addEventListener('keypress',function(e) {
+	dispTime();
+	timer_ID = setInterval("minusTime()", 1000);
+	}, {
+  once: true
+});
+
+
+
 </script>
 </head>
 
 <body>
 <center>
+<h1>残り時間<output></output>秒</h1>
 <h1 id="start" class="text">何かキーを押して下さい</h1>
 <h2 id="jan" class="text">にほんご</h2>
 <p class="hunter text">はんたーもじ</p>
