@@ -2,10 +2,13 @@ class GameController < ApplicationController
   def play
   end
 
-  def nomal_easy
+  def mode
   end
 
   def nomal_easy
+  end
+
+  def nomal_medium
   end
 
   def nomal_hard

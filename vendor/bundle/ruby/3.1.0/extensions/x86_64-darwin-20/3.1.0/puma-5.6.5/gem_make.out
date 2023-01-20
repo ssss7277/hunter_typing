@@ -14,18 +14,18 @@ checking for Random.bytes... yes
 creating Makefile
 
 current directory: /Users/nishimura/workspace/runteq/hunter_typing/vendor/bundle/ruby/3.1.0/gems/puma-5.6.5/ext/puma_http11
-make DESTDIR\= sitearchdir\=./.gem.20230112-48375-qr8y00 sitelibdir\=./.gem.20230112-48375-qr8y00 clean
+make DESTDIR\= sitearchdir\=./.gem.20230120-90003-rshglb sitelibdir\=./.gem.20230120-90003-rshglb clean
 
 current directory: /Users/nishimura/workspace/runteq/hunter_typing/vendor/bundle/ruby/3.1.0/gems/puma-5.6.5/ext/puma_http11
-make DESTDIR\= sitearchdir\=./.gem.20230112-48375-qr8y00 sitelibdir\=./.gem.20230112-48375-qr8y00
+make DESTDIR\= sitearchdir\=./.gem.20230120-90003-rshglb sitelibdir\=./.gem.20230120-90003-rshglb
 compiling http11_parser.c
 compiling mini_ssl.c
 compiling puma_http11.c
 linking shared-object puma/puma_http11.bundle
 
 current directory: /Users/nishimura/workspace/runteq/hunter_typing/vendor/bundle/ruby/3.1.0/gems/puma-5.6.5/ext/puma_http11
-make DESTDIR\= sitearchdir\=./.gem.20230112-48375-qr8y00 sitelibdir\=./.gem.20230112-48375-qr8y00 install
-/usr/bin/install -c -m 0755 puma_http11.bundle ./.gem.20230112-48375-qr8y00/puma
+make DESTDIR\= sitearchdir\=./.gem.20230120-90003-rshglb sitelibdir\=./.gem.20230120-90003-rshglb install
+/usr/bin/install -c -m 0755 puma_http11.bundle ./.gem.20230120-90003-rshglb/puma
 
 current directory: /Users/nishimura/workspace/runteq/hunter_typing/vendor/bundle/ruby/3.1.0/gems/puma-5.6.5/ext/puma_http11
-make DESTDIR\= sitearchdir\=./.gem.20230112-48375-qr8y00 sitelibdir\=./.gem.20230112-48375-qr8y00 clean
+make DESTDIR\= sitearchdir\=./.gem.20230120-90003-rshglb sitelibdir\=./.gem.20230120-90003-rshglb clean
