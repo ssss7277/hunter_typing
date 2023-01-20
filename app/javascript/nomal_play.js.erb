@@ -166,10 +166,6 @@ function kana2romeArray(kana){
   return rome_array;
 }
 
-romeArray2string([["k","u"],[["j", "i"], ["z", "i"]],["r","a"],["t","o"],["u"]]);
-//[["k","u"],["j", "i"],["r","a"],["t","o"],["u"]]
-//["k","u","j", "i", "r","a","t","o","u"]
-
 // 配列を合体させて文字列にする
 function romeArray2string(rome_array){
   for (var i = 0; i < rome_array.length; i++) {
@@ -261,17 +257,17 @@ function r2h(roman) {
 
 
 
-//var question = ["gonn","reorio","kirua","kuroro","goreinu","kurapika","mitosann","togasiyosihiro","kumo","annkokutairiku","kurutazoku","kujiratou","yanngasu"];
-//var jan_question = ["ごん","れおりお","きるあ","くろろ","ごれいぬ","くらぴか","みとさん","とがしよしひろ","くも","あんこくたいりく","くるたぞく","くじらとう","やんがす"];
-var question = get_question()[1];
-var jan_question = get_question()[0];
-var q_no = Math.floor( Math.random() * question.length);
-var rome_question = romeArray2string(question[q_no]);
-var jan_q_no = q_no;
+//var rome_q = ["gonn","reorio","kirua","kuroro","goreinu","kurapika","mitosann","togasiyosihiro","kumo","annkokutairiku","kurutazoku","kujiratou","yanngasu"];
+//var kana_q_array = ["ごん","れおりお","きるあ","くろろ","ごれいぬ","くらぴか","みとさん","とがしよしひろ","くも","あんこくたいりく","くるたぞく","くじらとう","やんがす"];
+var rome_q_array = get_question()["rome"];
+var kana_q_array = get_question()["kana"];
+var q_no = Math.floor( Math.random() * rome_q_array.length);
+var rome_q = romeArray2string(rome_q_array[q_no]);
+var kana_q_no = q_no;
 var q_i = 0;
-var jan_q_i = 0;
-var q_len = rome_question.length;
-var jan_q_len = jan_question[q_no].length;
+var kana_q_i = 0;
+var q_len = rome_q.length;
+var kana_q_len = kana_q_array[q_no].length;
 var typing_characters = [];
 
 // 効果音
@@ -300,30 +296,30 @@ function push_Keydown(event){
   var keyCode = event.key;
   //スタート時に問題を表示する
   if (q_i == 0){
-    document.getElementById("rome").innerHTML = rome_question.substring(q_i, q_len);
-    document.getElementById("jan").innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
-    document.getElementsByClassName("hunter")[0].innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
+    document.getElementById("rome").innerHTML = rome_q.substring(q_i, q_len);
+    document.getElementById("kana").innerHTML = kana_q_array[kana_q_no].substring(kana_q_i, kana_q_len);
+    document.getElementsByClassName("hunter")[0].innerHTML = kana_q_array[kana_q_no].substring(kana_q_i, kana_q_len);
   }
 
   //正解の入力をされた場合
-  if (rome_question.charAt(q_i) == keyCode) {
+  if (rome_q.charAt(q_i) == keyCode) {
     good.currentTime = 0;
     good.play();
     //keycodeをtyping_character配列に入れる
     typing_characters.push(keyCode);
     q_i++;
-    document.getElementById("rome").innerHTML = rome_question.substring(q_i, q_len);
+    document.getElementById("rome").innerHTML = rome_q.substring(q_i, q_len);
 
     //typing_characters配列の要素がひらがなになっているならば
     var Linking = typing_characters.join("");
     console.log(Linking);
-    console.log(jan_question[jan_q_no].substring(jan_q_i, jan_q_i+1));
+    console.log(kana_q_array[kana_q_no].substring(kana_q_i, kana_q_i+1));
 
-    if (r2h(Linking) == jan_question[jan_q_no].substring(jan_q_i, jan_q_i+1)){
-      // jan_question配列の一文字目の表示を消す
-      jan_q_i++;
-      document.getElementById("jan").innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
-      document.getElementsByClassName("hunter")[0].innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
+    if (r2h(Linking) == kana_q_array[kana_q_no].substring(kana_q_i, kana_q_i+1)){
+      // kana_q_array配列の一文字目の表示を消す
+      kana_q_i++;
+      document.getElementById("kana").innerHTML = kana_q_array[kana_q_no].substring(kana_q_i, kana_q_len);
+      document.getElementsByClassName("hunter")[0].innerHTML = kana_q_array[kana_q_no].substring(kana_q_i, kana_q_len);
       //typing_charactersを空っぽにする
       typing_characters = [];
     }
@@ -333,16 +329,16 @@ function push_Keydown(event){
       ok.play();
       score++;
       dispScore();
-      q_no = Math.floor( Math.random() * question.length);
-      rome_question = romeArray2string(question[q_no]);
-      jan_q_no = q_no;
+      q_no = Math.floor( Math.random() * rome_q_array.length);
+      rome_q = romeArray2string(rome_q_array[q_no]);
+      kana_q_no = q_no;
       q_i = 0;
-      jan_q_i = 0;
-      q_len = rome_question.length;
-      jan_q_len = jan_question[q_no].length;
-      document.getElementById("rome").innerHTML = rome_question.substring(q_i, q_len);
-      document.getElementById("jan").innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
-      document.getElementsByClassName("hunter")[0].innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
+      kana_q_i = 0;
+      q_len = rome_q.length;
+      kana_q_len = kana_q_array[q_no].length;
+      document.getElementById("rome").innerHTML = rome_q.substring(q_i, q_len);
+      document.getElementById("kana").innerHTML = kana_q_array[kana_q_no].substring(kana_q_i, kana_q_len);
+      document.getElementsByClassName("hunter")[0].innerHTML = kana_q_array[kana_q_no].substring(kana_q_i, kana_q_len);
     }
   }else{
     bad.currentTime = 0;
@@ -390,20 +386,23 @@ function romeSwitching() {
 
 function get_question(){
   path_name = location.pathname;
-  questions = [];
+  kana_q_arrays = [];
   if(path_name=="/nomal_easy" || path_name=="/rank_easy"){
-    questions = [["ごん", "きるあ", "くらぴか", "れおりお"]];
+    kana_q_arrays = ["ごん", "きるあ", "くらぴか", "れおりお"];
   }else if(path_name=="/nomal_medium" || path_name=="/rank_medium"){
-    questions = [["りょだん"]];
+    kana_q_arrays = ["りょだん"];
   }else if(path_name=="/nomal_hard" || path_name=="/rank_hard"){
-    questions = [["はんぞー"]];
+    kana_q_arrays = ["はんぞー"];
   }
-  var rome_array = [];
-  for (var i = 0; i < questions[0].length; i++) {
+  var rome_qs = [];
+  for (var i = 0; i < kana_q_arrays.length; i++) {
     //ひらがなからローマ字へ変換
-    rome_array.push(kana2romeArray(questions[0][i]));
+    rome_qs.push(kana2romeArray(kana_q_arrays[i]));
   }
-  questions.push(rome_array);
+  questions = {
+    "kana" : kana_q_arrays,
+    "rome" : rome_qs
+  }
 
   return questions;
 }
