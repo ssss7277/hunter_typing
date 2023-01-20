@@ -2,6 +2,15 @@ class GameController < ApplicationController
   def play
   end
 
+  def home
+  end
+
+  def explanation
+  end
+
+  def setitong
+  end
+
   def mode
   end
 

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  root to: 'game#play'
+  root to: 'game#home'
   get 'mode',to: 'game#mode'
+  get 'explanation',to: 'game#explanation'
+  get 'setting',to: 'game#setting'
+  get 'play',to: 'game#play'
   get 'nomal_easy', to: 'game#nomal_easy'
   get 'nomal_medium', to: 'game#nomal_medium'
   get 'nomal_hard', to: 'game#nomal_hard'
