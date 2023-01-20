@@ -1,291 +1,188 @@
-//ひらがなからローマ字へ変換
-var kanaToRoman = function(targetStr, type, options) {
-  /**
-  * 変換マップ
-  */
-  var romanMap = {
-    'あ' : 'a',
-    'い' : 'i',
-    'う' : 'u',
-    'え' : 'e',
-    'お' : 'o',
-    'か' : 'ka',
-    'き' : 'ki',
-    'く' : 'ku',
-    'け' : 'ke',
-    'こ' : 'ko',
-    'さ' : 'sa',
-    'し' : { hepburn : 'shi', kunrei : 'si' },
-    'す' : 'su',
-    'せ' : 'se',
-    'そ' : 'so',
-    'た' : 'ta',
-    'ち' : { hepburn : 'chi', kunrei : 'ti' },
-    'つ' : { hepburn : 'tsu', kunrei : 'tu' },
-    'て' : 'te',
-    'と' : 'to',
-    'な' : 'na',
-    'に' : 'ni',
-    'ぬ' : 'nu',
-    'ね' : 'ne',
-    'の' : 'no',
-    'は' : 'ha',
-    'ひ' : 'hi',
-    'ふ' : { hepburn : 'fu', kunrei : 'hu' },
-    'へ' : 'he',
-    'ほ' : 'ho',
-    'ま' : 'ma',
-    'み' : 'mi',
-    'む' : 'mu',
-    'め' : 'me',
-    'も' : 'mo',
-    'や' : 'ya',
-    'ゆ' : 'yu',
-    'よ' : 'yo',
-    'ら' : 'ra',
-    'り' : 'ri',
-    'る' : 'ru',
-    'れ' : 're',
-    'ろ' : 'ro',
-    'わ' : 'wa',
-    'ゐ' : 'wi',
-    'ゑ' : 'we',
-    'を' : { hepburn : 'o', kunrei : 'wo' },
-    'ん' : 'nn',
-    'が' : 'ga',
-    'ぎ' : 'gi',
-    'ぐ' : 'gu',
-    'げ' : 'ge',
-    'ご' : 'go',
-    'ざ' : 'za',
-    'じ' : { hepburn : 'ji', kunrei : 'zi' },
-    'ず' : 'zu',
-    'ぜ' : 'ze',
-    'ぞ' : 'zo',
-    'だ' : 'da',
-    'ぢ' : { hepburn : 'ji', kunrei : 'di' },
-    'づ' : { hepburn : 'zu', kunrei : 'du' },
-    'で' : 'de',
-    'ど' : 'do',
-    'ば' : 'ba',
-    'び' : 'bi',
-    'ぶ' : 'bu',
-    'べ' : 'be',
-    'ぼ' : 'bo',
-    'ぱ' : 'pa',
-    'ぴ' : 'pi',
-    'ぷ' : 'pu',
-    'ぺ' : 'pe',
-    'ぽ' : 'po',
-    'きゃ' : 'kya',
-    'きぃ' : 'kyi',
-    'きゅ' : 'kyu',
-    'きぇ' : 'kye',
-    'きょ' : 'kyo',
-    'くぁ' : 'qa',
-    'くぃ' : 'qi',
-    'くぇ' : 'qe',
-    'くぉ' : 'qo',
-    'くゃ' : 'qya',
-    'くゅ' : 'qyu',
-    'くょ' : 'qyo',
-    'しゃ' : { hepburn : 'sha', kunrei : 'sya' },
-    'しぃ' : 'syi',
-    'しゅ' : { hepburn : 'shu', kunrei : 'syu' },
-    'しぇ' : 'sye',
-    'しょ' : { hepburn : 'sho', kunrei : 'syo' },
-    'ちゃ' : { hepburn : 'cha', kunrei : 'tya' },
-    'ちぃ' : ['tyi'],
-    'ちゅ' : { hepburn : 'chu', kunrei : 'tyu' },
-    'ちぇ' : ['tye'],
-    'ちょ' : { hepburn : 'cho', kunrei : 'tyo' },
-    'つぇ' : 'tuxe',
-    'てゃ' : 'tha',
-    'てぃ' : 'thi',
-    'てゅ' : 'thu',
-    'てぇ' : 'the',
-    'てょ' : 'tho',
-    'ひゃ' : 'hya',
-    'ひぃ' : 'hyi',
-    'ひゅ' : 'hyu',
-    'ひぇ' : 'hye',
-    'ひょ' : 'hyo',
-    'ふぁ' : 'fa',
-    'ふぃ' : 'fi',
-    'ふぇ' : 'fe',
-    'ふぉ' : 'fo',
-    'みゃ' : 'mya',
-    'みぃ' : 'myi',
-    'みゅ' : 'myu',
-    'みぇ' : 'mye',
-    'みょ' : 'myo',
-    'ヴぁ' : 'va',
-    'ヴぃ' : 'vi',
-    'ヴぇ' : 've',
-    'ヴぉ' : 'vo',
-    'ぎゃ' : 'gya',
-    'ぎぃ' : 'gyi',
-    'ぎゅ' : 'gyu',
-    'ぎぇ' : 'gye',
-    'ぎょ' : 'gyo',
-    'じゃ' : { hepburn : 'ja', kunrei : 'zya' },
-    'じぃ' : 'zyi',
-    'じゅ' : { hepburn : 'ju', kunrei : 'zyu' },
-    'じぇ' : 'zye',
-    'じょ' : { hepburn : 'jo', kunrei : 'zyo' },
-    'ぢゃ' : { hepburn : 'dya', kunrei : 'zya' },
-    'ぢぃ' : 'dyi',
-    'ぢゅ' : { hepburn : 'dyu', kunrei : 'zya' },
-    'ぢぇ' : 'dye',
-    'ぢょ' : { hepburn : 'dyo', kunrei : 'zya' },
-    'びゃ' : 'bya',
-    'びぃ' : 'byi',
-    'びゅ' : 'byu',
-    'びぇ' : 'bye',
-    'びょ' : 'byo',
-    'ぴゃ' : 'pya',
-    'ぴぃ' : 'pyi',
-    'ぴゅ' : 'pyu',
-    'ぴぇ' : 'pye',
-    'ぴょ' : 'pyo',
-    'ぁ' : 'xa',
-    'ぃ' : 'xi',
-    'ぅ' : 'xu',
-    'ぇ' : 'xe',
-    'ぉ' : 'xo',
-    'ゃ' : 'xya',
-    'ゅ' : 'xyu',
-    'ょ' : 'xyo',
-    'っ' : 'xtu',
-    'ヴ' : 'vu',
-    'ー' : '-',
-    '、' : ', ',
-    '，' : ', ',
-    '。' : '.'
+// ひらがなからローマ字へ変換
+function kana2romeArray(kana){
+  var kanamap = {
+      'あ' : ['a'],
+      'い' : ['i'],
+      'う' : ['u'],
+      'え' : ['e'],
+      'お' : ['o'],
+      'か' : ['k', 'a'],
+      'き' : ['k', 'i'],
+      'く' : ['k', 'u'],
+      'け' : ['k', 'e'],
+      'こ' : ['k', 'o'],
+      'さ' : ['s', 'a'],
+      'し' : [["s","h", "i"], ["s", "i"]],
+      'す' : ['s', 'u'],
+      'せ' : ['s', 'e'],
+      'そ' : ['s', 'o'],
+      'た' : ['t', 'a'],
+      'ち' : [["c","h", "i"], ["t", "i"]],
+      'つ' : [["t","s", "u"], ["t", "u"]],
+      'て' : ['t', 'e'],
+      'と' : ['t', 'o'],
+      'な' : ['n', 'a'],
+      'に' : ['n', 'i'],
+      'ぬ' : ['n', 'u'],
+      'ね' : ['n', 'e'],
+      'の' : ['n', 'o'],
+      'は' : ['h', 'a'],
+      'ひ' : ['h', 'i'],
+      'ふ' : [["f", "u"], ["h", "u"]],
+      'へ' : ['h', 'e'],
+      'ほ' : ['h', 'o'],
+      'ま' : ['m', 'a'],
+      'み' : ['m', 'i'],
+      'む' : ['m', 'u'],
+      'め' : ['m', 'e'],
+      'も' : ['m', 'o'],
+      'や' : ['y', 'a'],
+      'ゆ' : ['y', 'u'],
+      'よ' : ['y', 'o'],
+      'ら' : ['r', 'a'],
+      'り' : ['r', 'i'],
+      'る' : ['r', 'u'],
+      'れ' : ['r', 'e'],
+      'ろ' : ['r', 'o'],
+      'わ' : ['w', 'a'],
+      'ゐ' : ['w', 'i'],
+      'ゑ' : ['w', 'e'],
+      'を' : ["w', 'o"],
+      'ん' : ['n', 'n'],
+      'が' : ['g', 'a'],
+      'ぎ' : ['g', 'i'],
+      'ぐ' : ['g', 'u'],
+      'げ' : ['g', 'e'],
+      'ご' : ['g', 'o'],
+      'ざ' : ['z', 'a'],
+      'じ' : [["j", "i"], ["z", "i"]],
+      'ず' : ['z', 'u'],
+      'ぜ' : ['z', 'e'],
+      'ぞ' : ['z', 'o'],
+      'だ' : ['d', 'a'],
+      'ぢ' : [["j", "i"], ["d", "i"]],
+      'づ' : [["z", "u"], ["d", "u"]],
+      'で' : ['d', 'e'],
+      'ど' : ['d', 'o'],
+      'ば' : ['b', 'a'],
+      'び' : ['b', 'i'],
+      'ぶ' : ['b', 'u'],
+      'べ' : ['b', 'e'],
+      'ぼ' : ['b', 'o'],
+      'ぱ' : ['p', 'a'],
+      'ぴ' : ['p', 'i'],
+      'ぷ' : ['p', 'u'],
+      'ぺ' : ['p', 'e'],
+      'ぽ' : ['p', 'o'],
+      'きゃ' : ['k', 'y', 'a'],
+      'きぃ' : ['k', 'y', 'i'],
+      'きゅ' : ['k', 'y', 'u'],
+      'きぇ' : ['k', 'y', 'e'],
+      'きょ' : ['k', 'y', 'o'],
+      'くぁ' : ['q', 'a'],
+      'くぃ' : ['q', 'i'],
+      'くぇ' : ['q', 'e'],
+      'くぉ' : ['q', 'o'],
+      'くゃ' : ['q', 'y', 'a'],
+      'くゅ' : ['q', 'y', 'u'],
+      'くょ' : ['q', 'y', 'o'],
+      'しゃ' : [["s", "h", "a"], ["s", "y", "a"]],
+      'しぃ' : ['s', 'y', 'i'],
+      'しゅ' : [["s", "h", "u"], ["s", "y", "u"]],
+      'しぇ' : ['s', 'y', 'e'],
+      'しょ' : [["s", "h", "o"], ["s", "y", "o"]],
+      'ちゃ' : [["c", "h", "a"], ["t", "y", "a"], ["c", "y", "a"]],
+      'ちぃ' : ['t', 'y', 'i'],
+      'ちゅ' : [["c", "h", "u"], ["t", "y", "u"], ["c", "y", "u"]],
+      'ちぇ' : ['t', 'y', 'e'],
+      'ちょ' : [["c", "h", "o"], ["t", "y", "o"], ["c", "y", "o"]],
+      'てゃ' : ['t', 'h', 'a'],
+      'てぃ' : ['t', 'h', 'i'],
+      'てゅ' : ['t', 'h', 'u'],
+      'てぇ' : ['t', 'h', 'e'],
+      'てょ' : ['t', 'h', 'o'],
+      'ひゃ' : ['h', 'y', 'a'],
+      'ひぃ' : ['h', 'y', 'i'],
+      'ひゅ' : ['h', 'y', 'u'],
+      'ひぇ' : ['h', 'y', 'e'],
+      'ひょ' : ['h', 'y', 'o'],
+      'ふぁ' : ['f', 'a'],
+      'ふぃ' : ['f', 'i'],
+      'ふぇ' : ['f', 'e'],
+      'ふぉ' : ['f', 'o'],
+      'みゃ' : ['m', 'y', 'a'],
+      'みぃ' : ['m', 'y', 'i'],
+      'みゅ' : ['m', 'y', 'u'],
+      'みぇ' : ['m', 'y', 'e'],
+      'みょ' : ['m', 'y', 'o'],
+      'ヴぁ' : ['v', 'a'],
+      'ヴぃ' : ['v', 'i'],
+      'ヴぇ' : ['v', 'e'],
+      'ヴぉ' : ['v', 'o'],
+      'ぎゃ' : ['g', 'y', 'a'],
+      'ぎぃ' : ['g', 'y', 'i'],
+      'ぎゅ' : ['g', 'y', 'u'],
+      'ぎぇ' : ['g', 'y', 'e'],
+      'ぎょ' : ['g', 'y', 'o'],
+      'じゃ' : [["j", "a"], ["z", "y", "a"]],
+      'じぃ' : ['z', 'y', 'i'],
+      'じゅ' : [["j", "u"], ["z", "y", "u"]],
+      'じぇ' : ['z', 'y', 'e'],
+      'じょ' : [["j", "o"], ["z", "y", "o"]],
+      'ぢゃ' : [["d", "y", "a"], ["z", "y", "a"]],
+      'ぢぃ' : ['d', 'y', 'i'],
+      'ぢゅ' : ['d', 'y', 'u'],
+      'ぢぇ' : ['d', 'y', 'e'],
+      'ぢょ' : ['d', 'y', 'o'],
+      'びゃ' : ['b', 'y', 'a'],
+      'びぃ' : ['b', 'y', 'i'],
+      'びゅ' : ['b', 'y', 'u'],
+      'びぇ' : ['b', 'y', 'e'],
+      'びょ' : ['b', 'y', 'o'],
+      'ぴゃ' : ['p', 'y', 'a'],
+      'ぴぃ' : ['p', 'y', 'i'],
+      'ぴゅ' : ['p', 'y', 'u'],
+      'ぴぇ' : ['p', 'y', 'e'],
+      'ぴょ' : ['p', 'y', 'o'],
+      'ぁ' : ['x', 'a'],
+      'ぃ' : ['x', 'i'],
+      'ぅ' : ['x', 'u'],
+      'ぇ' : ['x', 'e'],
+      'ぉ' : ['x', 'o'],
+      'ゃ' : ['x', 'y', 'a'],
+      'ゅ' : ['x', 'y', 'u'],
+      'ょ' : ['x', 'y', 'o'],
+      'っ' : ['x', 't', 'u'],
+      'ヴ' : ['v', 'u'],
+      'ー' : ['-'],
+      '、' : [', '],
+      '，' : [', '],
+      '。' : ['.']
   };
-
-  /**
-  * 長音のラテン文字
-  */
-  var latins = {
-    hepburn : {
-      'a' : 257,
-      'i' : 299,
-      'u' : 363,
-      'e' : 275,
-      'o' : 333
-    },
-    kunrei : {
-      'a' : 226,
-      'i' : 238,
-      'u' : 251,
-      'e' : 234,
-      'o' : 244
-    }
-  };
-
-  if (typeof targetStr !== 'string' && typeof targetStr !== 'number') {
-    throw '変換する対象が文字列ではありません。';
+  var rome_array = [];
+  for (var i = 0; i < kana.length; i++) {
+    rome_array.push(kanamap[kana.charAt(i)]);
   }
+  return rome_array;
+}
 
-  if (typeof type !== 'string' || !type.match(/^(hepburn|kunrei)$/)) type = 'hepburn';
+romeArray2string([["k","u"],[["j", "i"], ["z", "i"]],["r","a"],["t","o"],["u"]]);
+//[["k","u"],["j", "i"],["r","a"],["t","o"],["u"]]
+//["k","u","j", "i", "r","a","t","o","u"]
 
-  if (!options) options = {};
-  if (typeof options.kana !== 'string') options.kana = 'all';
-  if (!options.kana.match(/^(all|hiragana|katakana)$/)) options.kana = 'all';
-  if (typeof options.bmp !== 'boolean') options.bmp = true;
-  if (typeof options.longSound !== 'string') options.longSound = 'latin';
-  if (!options.longSound.match(/^(latin|hyphen)$/)) options.longSound = 'latin';
-
-  var remStr = String(targetStr), result = '', slStr, roman, lastStr;
-
-  /**
-  * 残りの文字列から1文字を切り抜く
-  * @return {string} 切り抜いた1つの文字列を返す
-  */
-  var splice = function() {
-    var oneChar = remStr.slice(0, 1);
-    remStr = remStr.slice(1);
-    return oneChar;
-  };
-
-  /**
-  * 残りの文字列の最初が小文字か判定
-  * @return {boolean} 小文字の場合はtrue、そうでない場合はfalseを返す
-  */
-  var isSmallChar = function() {
-    return !!remStr.slice(0, 1).match(/^[ぁぃぅぇぉゃゅょァィゥェォャュョ]$/);
-  };
-
-  /**
-  * カタカナからひらがなへ変換
-  * @param {string} kana 元とおなるカタカナ
-  * @return {string} ひらがなへ変換された文字列
-  */
-  var toHiragana = function(kana) {
-    return kana.replace(/[\u30a1-\u30f6]/g, function(match) {
-      return String.fromCharCode(match.charCodeAt(0) - 0x60);
-    });
-  };
-
-  /**
-  * ひらがなから対応するローマ字を取得
-  * @param {string} kana 元となるひらがな
-  * @return {string} 見つかった場合は対応するローマ字、見つからなかったら元のひらがなを返す
-  */
-  var getRoman = function(kana) {
-    var roman = romanMap[toHiragana(kana)];
-    if (roman) {
-      if (typeof roman === 'string') {
-        return roman;
-      } else if (type === 'hepburn') {
-        return roman.hepburn;
-      } else if (type === 'kunrei') {
-        return roman.kunrei;
-      }
-    } else {
-      return kana;
-    }
-  };
-
-  while (remStr) {
-    slStr = splice();
-
-    if (slStr.match(/^(っ|ッ)$/)) {
-      slStr = splice();
-      if (isSmallChar()) slStr += splice();
-
-      roman = getRoman(slStr);
-      roman = (roman !== slStr ? roman.slice(0, 1) : '') + roman;
-    } else {
-      if (isSmallChar()) slStr += splice();
-
-      roman = getRoman(slStr);
-    }
-
-    var nextRoman = kanaToRoman(remStr.slice(0, 1));
-    if (roman === 'n') {
-      if (nextRoman.match(/^[aiueo]$/)) {
-        roman += type === 'hepburn' ? '-': '\'';
-      } else if (options.bmp && nextRoman.match(/^[bmp]/) && type === 'hepburn') {
-        roman = 'm';
-      }
-    } else if (roman === '-') {
-      lastStr = result.match(/[aiueo]$/);
-      if (lastStr && options.longSound === 'latin') {
-        result = result.slice(0, -1);
-        roman = String.fromCharCode(latins[type][lastStr[0]]);
-      }
-    }
-
-    result += roman;
+// 配列を合体させて文字列にする
+function romeArray2string(rome_array){
+  for (var i = 0; i < rome_array.length; i++) {
+    if (Array.isArray(rome_array[i][0])){
+      rome_array[i] = rome_array[i][0];
+    };
   }
-
-  return result;
-};
+  rome_array = rome_array.flat();
+  rome_array.join("");
+  return rome_array.join("");
+}
 
 //ローマ字からひらがなへ変換
-
 var roman2hiragana = {
   'a':'あ', 'i':'い', 'u':'う', 'e':'え', 'o':'お',
   'ka':'か', 'ki':'き', 'ku':'く', 'ke':'け', 'ko':'こ',
@@ -369,10 +266,11 @@ function r2h(roman) {
 var question = get_question()[1];
 var jan_question = get_question()[0];
 var q_no = Math.floor( Math.random() * question.length);
+var rome_question = romeArray2string(question[q_no]);
 var jan_q_no = q_no;
 var q_i = 0;
 var jan_q_i = 0;
-var q_len = question[q_no].length;
+var q_len = rome_question.length;
 var jan_q_len = jan_question[q_no].length;
 var typing_characters = [];
 
@@ -402,19 +300,19 @@ function push_Keydown(event){
   var keyCode = event.key;
   //スタート時に問題を表示する
   if (q_i == 0){
-    document.getElementById("rome").innerHTML = question[q_no].substring(q_i, q_len);
+    document.getElementById("rome").innerHTML = rome_question.substring(q_i, q_len);
     document.getElementById("jan").innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
     document.getElementsByClassName("hunter")[0].innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
   }
 
   //正解の入力をされた場合
-  if (question[q_no].charAt(q_i) == keyCode) {
+  if (rome_question.charAt(q_i) == keyCode) {
     good.currentTime = 0;
     good.play();
     //keycodeをtyping_character配列に入れる
     typing_characters.push(keyCode);
     q_i++;
-    document.getElementById("rome").innerHTML = question[q_no].substring(q_i, q_len);
+    document.getElementById("rome").innerHTML = rome_question.substring(q_i, q_len);
 
     //typing_characters配列の要素がひらがなになっているならば
     var Linking = typing_characters.join("");
@@ -436,12 +334,13 @@ function push_Keydown(event){
       score++;
       dispScore();
       q_no = Math.floor( Math.random() * question.length);
+      rome_question = romeArray2string(question[q_no]);
       jan_q_no = q_no;
       q_i = 0;
       jan_q_i = 0;
-      q_len = question[q_no].length;
+      q_len = rome_question.length;
       jan_q_len = jan_question[q_no].length;
-      document.getElementById("rome").innerHTML = question[q_no].substring(q_i, q_len);
+      document.getElementById("rome").innerHTML = rome_question.substring(q_i, q_len);
       document.getElementById("jan").innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
       document.getElementsByClassName("hunter")[0].innerHTML = jan_question[jan_q_no].substring(jan_q_i, jan_q_len);
     }
@@ -493,20 +392,18 @@ function get_question(){
   path_name = location.pathname;
   questions = [];
   if(path_name=="/nomal_easy" || path_name=="/rank_easy"){
-    questions = [
-      ["かんたん","かんたん","かんたん"], 
-      ["kanntann","kanntann","kanntann"]
-    ];
+    questions = [["ごん", "きるあ", "くらぴか", "れおりお"]];
   }else if(path_name=="/nomal_medium" || path_name=="/rank_medium"){
-    questions = [
-      ["ふつう"], 
-      ["hutuu"]
-    ];
+    questions = [["りょだん"]];
   }else if(path_name=="/nomal_hard" || path_name=="/rank_hard"){
-    questions = [
-      ["むずかしい"], 
-      ["muzukasii"]
-    ];
+    questions = [["はんぞー"]];
   }
+  var rome_array = [];
+  for (var i = 0; i < questions[0].length; i++) {
+    //ひらがなからローマ字へ変換
+    rome_array.push(kana2romeArray(questions[0][i]));
+  }
+  questions.push(rome_array);
+
   return questions;
 }
