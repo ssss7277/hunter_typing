@@ -40,3 +40,7 @@ p{
   font-family: "hunter";
   font-size: xx-large;
 }
+
+.hidden{
+  opacity: 0;
+}

@@ -13,10 +13,10 @@ checking for sys/resource.h... yes
 creating Makefile
 
 current directory: /Users/nishimura/workspace/runteq/hunter_typing/vendor/bundle/ruby/3.1.0/gems/nio4r-2.5.8/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20230112-48375-ulv44q sitelibdir\=./.gem.20230112-48375-ulv44q clean
+make DESTDIR\= sitearchdir\=./.gem.20230120-90003-fhlu51 sitelibdir\=./.gem.20230120-90003-fhlu51 clean
 
 current directory: /Users/nishimura/workspace/runteq/hunter_typing/vendor/bundle/ruby/3.1.0/gems/nio4r-2.5.8/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20230112-48375-ulv44q sitelibdir\=./.gem.20230112-48375-ulv44q
+make DESTDIR\= sitearchdir\=./.gem.20230120-90003-fhlu51 sitelibdir\=./.gem.20230120-90003-fhlu51
 compiling bytebuffer.c
 bytebuffer.c:308:20: warning: implicit conversion loses integer precision: 'ssize_t' (aka 'long') to 'int' [-Wshorten-64-to-32]
     return INT2NUM(bytes_read);
@@ -295,8 +295,8 @@ VALUE rb_ensure(VALUE (*b_proc)(VALUE), VALUE data1, VALUE (*e_proc)(VALUE), VAL
 linking shared-object nio4r_ext.bundle
 
 current directory: /Users/nishimura/workspace/runteq/hunter_typing/vendor/bundle/ruby/3.1.0/gems/nio4r-2.5.8/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20230112-48375-ulv44q sitelibdir\=./.gem.20230112-48375-ulv44q install
-/usr/bin/install -c -m 0755 nio4r_ext.bundle ./.gem.20230112-48375-ulv44q
+make DESTDIR\= sitearchdir\=./.gem.20230120-90003-fhlu51 sitelibdir\=./.gem.20230120-90003-fhlu51 install
+/usr/bin/install -c -m 0755 nio4r_ext.bundle ./.gem.20230120-90003-fhlu51
 
 current directory: /Users/nishimura/workspace/runteq/hunter_typing/vendor/bundle/ruby/3.1.0/gems/nio4r-2.5.8/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20230112-48375-ulv44q sitelibdir\=./.gem.20230112-48375-ulv44q clean
+make DESTDIR\= sitearchdir\=./.gem.20230120-90003-fhlu51 sitelibdir\=./.gem.20230120-90003-fhlu51 clean

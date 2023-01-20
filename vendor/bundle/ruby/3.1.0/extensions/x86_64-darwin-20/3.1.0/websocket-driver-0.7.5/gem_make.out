@@ -3,16 +3,16 @@ current directory: /Users/nishimura/workspace/runteq/hunter_typing/vendor/bundle
 creating Makefile
 
 current directory: /Users/nishimura/workspace/runteq/hunter_typing/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.5/ext/websocket-driver
-make DESTDIR\= sitearchdir\=./.gem.20230112-48375-heif9x sitelibdir\=./.gem.20230112-48375-heif9x clean
+make DESTDIR\= sitearchdir\=./.gem.20230120-90003-f4fdoz sitelibdir\=./.gem.20230120-90003-f4fdoz clean
 
 current directory: /Users/nishimura/workspace/runteq/hunter_typing/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.5/ext/websocket-driver
-make DESTDIR\= sitearchdir\=./.gem.20230112-48375-heif9x sitelibdir\=./.gem.20230112-48375-heif9x
+make DESTDIR\= sitearchdir\=./.gem.20230120-90003-f4fdoz sitelibdir\=./.gem.20230120-90003-f4fdoz
 compiling websocket_mask.c
 linking shared-object websocket_mask.bundle
 
 current directory: /Users/nishimura/workspace/runteq/hunter_typing/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.5/ext/websocket-driver
-make DESTDIR\= sitearchdir\=./.gem.20230112-48375-heif9x sitelibdir\=./.gem.20230112-48375-heif9x install
-/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20230112-48375-heif9x
+make DESTDIR\= sitearchdir\=./.gem.20230120-90003-f4fdoz sitelibdir\=./.gem.20230120-90003-f4fdoz install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20230120-90003-f4fdoz
 
 current directory: /Users/nishimura/workspace/runteq/hunter_typing/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.5/ext/websocket-driver
-make DESTDIR\= sitearchdir\=./.gem.20230112-48375-heif9x sitelibdir\=./.gem.20230112-48375-heif9x clean
+make DESTDIR\= sitearchdir\=./.gem.20230120-90003-f4fdoz sitelibdir\=./.gem.20230120-90003-f4fdoz clean
