@@ -288,6 +288,7 @@ var state = true;
 function dispScore() {
   document.getElementById("totalScore").textContent = score;
 }
+var scoring_array = [];
 
 window.addEventListener("keydown", push_Keydown);
 
@@ -340,7 +341,22 @@ function push_Keydown(event){
       document.getElementById("kana").innerHTML = kana_q_array[kana_q_no].substring(kana_q_i, kana_q_len);
       document.getElementsByClassName("hunter")[0].innerHTML = kana_q_array[kana_q_no].substring(kana_q_i, kana_q_len);
     }
+    // 正解数に応じて秒数が増える
+    scoring_array.push(keyCode);
+    if (scoring_array.length == 4){
+      time++;
+    }else if (scoring_array.length == 6){
+      time++;
+    }else if (scoring_array.length == 8){
+      time++;
+    }else if (scoring_array.length == 10){
+      time = time + 3;
+    }else if (scoring_array.length == 20){
+      time = time + 3;
+      scoring_array = [];
+    }
   }else{
+    scoring_array = [];
     bad.currentTime = 0;
     bad.play();
   }
