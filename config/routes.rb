@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'rank_easy', to: 'game#rank_easy'
   get 'rank_medium', to: 'game#rank_medium'
   get 'rank_hard', to: 'game#rank_hard'
+  get 'result', to: 'game#result'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

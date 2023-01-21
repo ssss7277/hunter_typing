@@ -8,7 +8,7 @@ class GameController < ApplicationController
   def explanation
   end
 
-  def setitong
+  def setting
   end
 
   def mode
@@ -30,5 +30,8 @@ class GameController < ApplicationController
   end
 
   def rank_hard
+  end
+
+  def result
   end
 end
