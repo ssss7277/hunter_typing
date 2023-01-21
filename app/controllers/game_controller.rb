@@ -33,5 +33,8 @@ class GameController < ApplicationController
   end
 
   def result
+    @result = params[:score]
+    @level = params[:level]
+    @score = Score.new
   end
 end
