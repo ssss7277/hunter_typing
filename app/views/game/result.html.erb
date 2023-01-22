@@ -1,0 +1,11 @@
+<center>
+<h1>結果発表</h1>
+<h1>score</h1>
+<h1 id="score" class="text"><%= @result %></h1>
+<%= form_for(@score) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.hidden_field :score, value: @result %>
+  <%= f.hidden_field :level, value: @level %>
+  <%= f.submit "ランキングに登録", class: "btn btn-primary" %>
+<% end %>
+</center>

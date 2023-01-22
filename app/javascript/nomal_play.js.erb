@@ -280,7 +280,7 @@ const good = new Audio(good_sounds_url);
 
 // カウントダウン
 var timer_ID;
-var time = 60;
+var time = 5;
 
 // 得点
 var score = 0;
@@ -368,6 +368,7 @@ function minusTime() {
   dispTime();
   if (time==0) {
     clearInterval(timer_ID);
+    location.href = "/result?score=" + encodeURIComponent(score) + "&level=" + encodeURIComponent(level);
   }
 }
 

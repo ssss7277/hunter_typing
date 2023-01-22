@@ -8,7 +8,7 @@ class GameController < ApplicationController
   def explanation
   end
 
-  def setitong
+  def setting
   end
 
   def mode
@@ -30,5 +30,11 @@ class GameController < ApplicationController
   end
 
   def rank_hard
+  end
+
+  def result
+    @result = params[:score]
+    @level = params[:level]
+    @score = Score.new
   end
 end
