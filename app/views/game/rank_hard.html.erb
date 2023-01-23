@@ -5,8 +5,14 @@ var level = 3;
 <center>
 <h1>rank_hard</h1>
 <h1>残り時間<output></output>秒</h1>
-<p class="hunter text">はんたーもじ</p>
+<p class="hunter text">スペースをおしてはじめる</p>
 <h1>score: <span id= "totalScore">0</span></h1>
 <h1 id="rome" class="text hidden">何かキーを押して下さい</h1>
 <h2 id="kana" class="text hidden">にほんご</h2>
+<%=link_to(setting_path) do %>
+  <button class="btn btn-secondary btn-lg" >設定</button>
+<%end%>
+<%=link_to(root_path) do %>
+  <button class="btn btn-secondary btn-lg" >タイトルに戻る</button>
+<%end%>
 </center>

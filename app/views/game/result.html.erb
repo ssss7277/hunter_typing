@@ -9,4 +9,10 @@
   <%= f.submit "ランキングに登録", class: "btn btn-primary" %>
   <%= link_to 'Twitter', "http://twitter.com/share?url=#{"https://translate.google.com/?hl=ja&tab=TT"}/&text=#{@result}オーラ貸付！ハンター打でハンター文字を覚えよう！&hashtags=ハンター打", title: 'Twitter', target: '_blank' %>
 <% end %>
+<%= link_to :back do %>
+  <button>再挑戦</button>
+<% end %>
+<%=link_to(root_path) do %>
+  <button class="btn btn-secondary btn-lg" >タイトルに戻る</button>
+<%end%>
 </center>
