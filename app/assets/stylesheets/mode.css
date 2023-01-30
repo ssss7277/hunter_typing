@@ -13,6 +13,10 @@
   text-align: center;
 }
 
+.mode_name{
+  font-weight: bold;
+}
+
 /* 四角ボタン */
 .flat.border {
   position: relative;

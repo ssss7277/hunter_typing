@@ -292,6 +292,16 @@ var scoring_array = [];
 
 window.addEventListener("keydown", push_Keydown);
 
+//エンターキーの無効化
+window.onload = function(){
+    document.onkeypress = enterForbidden;
+    function enterForbidden(){
+        if(window.event.keyCode == 13){
+            return false;
+        }
+    }
+}
+
 // プログレスバー
 function get_prog(){
   var gage = document.getElementById('bar').value;

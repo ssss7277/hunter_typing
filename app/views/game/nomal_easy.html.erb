@@ -1,5 +1,5 @@
 <script>
-var level = 0;
+  var level = 0;
 </script>
 <%= javascript_include_tag "nomal_play.js" %>
 <div class="mode_box">
@@ -13,10 +13,9 @@ var level = 0;
       <h1 class="hunter hunt_q">はんたーもじ</p>
       <h1 class = "rome_q" id="rome" >スペースを押して始める</h1>
       <h1 class="game_score">score: <span id= "totalScore">0</span></h1>
-<div class="prog-bar">
-<progress class ="pg_bar" id="bar" max="6" min="0" value="0" onkeydown=get_prog()></progress>
-</div>
-
+      <div class="prog-bar">
+        <progress class ="pg_bar" id="bar" max="6" min="0" value="0" onkeydown=get_prog()></progress>
+      </div>
     </div>
     <input type="button" value="日本語表示" onclick="janSwitching()">
     <input type="button" value="ローマ字表示" onclick="romeSwitching()">
