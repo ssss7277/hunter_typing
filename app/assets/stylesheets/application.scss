@@ -14,7 +14,6 @@
  *= require_self
  */
 
-
 @font-face{
   font-family: "hunter";
   src: url('hunter.ttf') format('truetype');
@@ -22,7 +21,6 @@
 
 .hunter{
   font-family: "hunter";
-  font-size: xx-large;
 }
 
 /* ヘッダー */
@@ -47,11 +45,13 @@ header {
   font-family: "hunter";
   margin-top: auto;
   margin-bottom: auto;
+  padding-left: 1vw;
 }
 
 .header_ul{
   margin-top: auto;
   margin-bottom: auto;
+  display: flex;
 }
 .header-list {
   display: flex;
@@ -69,7 +69,6 @@ header {
 }
 
 ul {
-  display: flex;
   justify-content: center;
   list-style: none;
   margin: 5px;
@@ -90,10 +89,18 @@ body{
   margin: 0%;
 }
 
-h1{
-  margin: 30px;
-
-}
+.box {
+  border: #EEF2E6 2px solid;
+  box-shadow: 0px 0px 15px 0px rgba(98,98,98,0.8);
+  background: #EEF2E6;
+  border-radius: 15px;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+} 
 
 h2{
   font-family: 'sherif';
@@ -129,6 +136,5 @@ footer {
 
 .left{
   display:flex;
-  justify-content: center;
 }
 

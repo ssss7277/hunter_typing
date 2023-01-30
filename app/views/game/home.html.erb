@@ -1,25 +1,17 @@
 <div class="box">
-<center>
-<h1 class = "logo_font">ハンター打</h1>
-<%= link_to("プレイ", mode_path, {class: "btn-circle-flat"}) %>
-</br>
-<%= link_to("遊び方", explanation_path, {class: "reset flat border"}) %>
-</br>
-<%= link_to("設定", setting_path, {class: "reset flat border"}) %>
-<%= link_to 'Twitter', "http://twitter.com/share?url=#{"https://translate.google.com/?hl=ja&tab=TT"}/&text=ハンター打でハンター文字を覚えよう！&hashtags=ハンター打", title: 'Twitter', target: '_blank' %>
-
-<li><a href="https://twitter.com/intent/tweet?text={ページタイトル}&url={URL}" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a></li>
-
-<div class="line-it-button" data-lang="ja" data-type="share-b" data-env="REAL" data-url="https://translate.google.com/?hl=ja&tab=TT" data-color="default" data-size="small" data-count="true" data-ver="3" style="display: none;"></div>
-<script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-</center>
+	<center>
+		<h1 class = "logo_font">ハンター打</h1>
+		<%= link_to("プレイ", mode_path, {class: "btn-circle-flat"}) %>
+		</br>
+		<%= link_to("遊び方", explanation_path, {class: "reset flat border"}) %>
+		</br>
+		<%= link_to("設定", setting_path, {class: "reset flat border"}) %>
+		<%= link_to 'Twitter', "http://twitter.com/share?url=#{"https://translate.google.com/?hl=ja&tab=TT"}/&text=ハンター打でハンター文字を覚えよう！&hashtags=ハンター打", title: 'Twitter', target: '_blank' %>
+		<%= link_to "http://twitter.com/share?url=#{"https://translate.google.com/?hl=ja&tab=TT"}/&text=ハンター打でハンター文字を覚えよう！&hashtags=ハンター打", target: '_blank' do %>
+			<i class="fa-brands fa-twitter sns_size" style='color: #3399FF;'></i>シェア
+		<% end %>
+		<div class="line-it-button" data-lang="ja" data-type="share-b" data-env="REAL" data-url="https://translate.google.com/?hl=ja&tab=TT" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
+			<script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+		</div>
+	</center>
 </div>
-</div>
-<ul class="fas_sns_iconcolor">
-	<li><a href="https://twitter.com/intent/tweet?text={ページタイトル}&url={URL}" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a></li>
-	<li><a href="http://www.facebook.com/share.php?u={URL}" target="_blank" rel="nofollow"><i class="fab fa-facebook-square"></i></a></li>
-	<li><a href="http://line.me/R/msg/text/?{URL}" target="_blank" rel="nofollow"><i class="fab fa-line"></i></a></li>
-	<li><a href="http://b.hatena.ne.jp/add?mode=confirm&url={URL}&title={ページタイトル}" target="_blank" rel="nofollow"><i class="fas fa-question-circle"></i></a></li>
-	<li><a href="http://getpocket.com/edit?url={URL}&title={ページタイトル}" target="_blank" rel="nofollow"><i class="fab fa-get-pocket"></i></a></li>
-	<li><a href="{RSSのURL}" target="_blank" rel="nofollow"><i class="fas fa-rss-square"></i></a></li>
-</ul>

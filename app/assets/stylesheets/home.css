@@ -7,9 +7,10 @@
   font-family: "delta";
   font-size: 6vw;
   text-align:  center;
+  margin: 0 auto;
 }
 
-
+/* 四角ボタン */
 .flat.border {
   position: relative;
   text-align: center;
@@ -39,7 +40,7 @@
   top: 2px;
 }
 
-
+/* 丸ボタン */
 .btn-circle-flat {
   display: flex;
   align-items: center;
@@ -56,43 +57,12 @@
   font-size: 2.25vw;
   font-weight: bold;
 }
-
 .btn-circle-flat:hover {
   border: 2px solid #AA0000;
   background: #AA0000;
   color: #fff;
 }
 
-.box {
-  border: #EEF2E6 2px solid;
-  box-shadow: 0px 0px 15px 0px rgba(98,98,98,0.8);
-  background: #EEF2E6;
-  border-radius: 15px;
-  width: 50%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+.sns_size{
+  font-size:1.5vw;
 }
-
-.sample01 {
-margin : 0 auto 40px;
-width : 100%;
-font-size : 28px;
-text-align : center;
-overflow : hidden;
-}
-.sample01 p{
-margin:0;
-display : inline-block;
-padding-left: 100%;
-white-space : nowrap;
-line-height : 1em;
-animation : scrollSample01 20s linear infinite;
-}
-@keyframes scrollSample01{
-0% { transform: translateX(0)}
-100% { transform: translateX(-100%)}
-}
-  

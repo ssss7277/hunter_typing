@@ -1,10 +1,27 @@
+.mode_box{
+  border: #EEF2E6 2px solid;
+  box-shadow: 0px 0px 15px 0px rgba(98,98,98,0.8);
+  background: #EEF2E6;
+  border-radius: 15px;
+  width: 50%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.mode_title{
+  text-align: center;
+}
 
+/* 四角ボタン */
 .flat.border {
   position: relative;
   text-align: center;
   display: block;
-  margin: 0 auto;
   width: 100%;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
   max-width: 200px;
   box-sizing: border-box;
   padding: 10px;
@@ -16,6 +33,7 @@
   border: 2px solid #D6CDA4;
   background: #fff;
   color: #D6CDA4;
+  font-size: 2vw;
 }
 .flat.border:hover {
   background: #D6CDA4;
@@ -23,4 +41,22 @@
 }
 .flat.border:active, .flat.border:focus {
   top: 2px;
+}
+
+.list--1{
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  padding: 0;
+  vertical-align: middle;
+  margin: 0 auto;
+  width: 70%;
+}
+.list--1 > .list__list{
+  width: 150px;
+  padding: 0;
+}
+
+.under_btn{
+  margin: 0 auto;
 }

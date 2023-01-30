@@ -1,40 +1,34 @@
-/*
- *= require font-awesome
- */
 <!DOCTYPE html>
 <html>
-  <header class="header">
-      <h1 class="header-logo">
-      <%= link_to("ハンターだ", root_path) %>
-      </h1>
-      <nav class="header_ul">
-          <ul class="header-list">
-          <li>
-          <%= link_to("ランキング", scores_path, {class: "header-item"}) %>
-          </li>
-          <li>
-          <%= link_to("HunterTwitter", scores_path, {class: "header-item header-item--contact"}) %>
-          </li>
-          </ul>
-      </nav>
-  </header>
   <head>
     <title>ハンター打</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/f882ac6f8a.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
+  <header class="header">
+    <h1 class="header-logo">
+      <%= link_to("ハンターだ", root_path) %>
+    </h1>
+    <nav class="header_ul">
+        <ul class="header-list">
+        <li>
+          <%= link_to("ランキング", scores_path, {class: "header-item"}) %>
+        </li>
+        <li>
+          <%= link_to("HunterTwitter", scores_path, {class: "header-item header-item--contact"}) %>
+        </li>
+        </ul>
+    </nav>
+  </header>
   <div id="content">
     <body>
       <%= yield %>
     </body>
   </div>
-
   <footer>
-  <p>© All rights reserved by webcampnavi.</p>
   </footer>
-
 </html>

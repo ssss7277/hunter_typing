@@ -292,6 +292,22 @@ var scoring_array = [];
 
 window.addEventListener("keydown", push_Keydown);
 
+// プログレスバー
+function get_prog(){
+  var gage = document.getElementById('bar').value;
+  if(gage == 6) {
+    reset();
+  }else{
+    document.getElementById('bar').value++;
+    var gage = document.getElementById('bar').value;
+    console.log(gage)
+  }
+}
+
+function reset(){
+  document.getElementById('bar').value = 0;
+}
+
 function push_Keydown(event){
 
   var keyCode = event.key;
@@ -304,6 +320,7 @@ function push_Keydown(event){
 
   //正解の入力をされた場合
   if (rome_q.charAt(q_i) == keyCode) {
+    get_prog();
     good.currentTime = 0;
     good.play();
     //keycodeをtyping_character配列に入れる
@@ -356,6 +373,7 @@ function push_Keydown(event){
       scoring_array = [];
     }
   }else{
+    reset();
     scoring_array = [];
     bad.currentTime = 0;
     bad.play();
