@@ -1,12 +1,19 @@
-<h1>hardランキング</h1>
-<% @score.each do |score| %>
-  <span><%= score.name %>:<%= score.score %>:<%= score.level %></span>
-  </br>
-<% end %>
+<div class="scroll_box">
+  <table>
+    <tr>
+      <th>順位</th><th>名前</th> <th>点数</th>
+    </tr>
+  <% @score.each do |score| %>
+    <tr>
+    <td><%= @number %></td> <td><%= score.name %></td> <td><%= score.score %></td>
+    </tr>
+    <% @number += 1 %>
+  <% end %>
+  </table>
+</div>
 <%=link_to(setting_path) do %>
-  <button class="btn btn-secondary btn-lg" >設定</button>
+  <button class="rank_btn" >設定</button>
 <%end%>
-
 <%=link_to(root_path) do %>
-  <button class="btn btn-secondary btn-lg" >タイトルに戻る</button>
+  <button class="rank_btn" >タイトルに戻る</button>
 <%end%>

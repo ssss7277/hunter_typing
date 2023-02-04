@@ -1,0 +1,42 @@
+.explanation_box{
+  border: #EEF2E6 2px solid;
+  box-shadow: 0px 0px 15px 0px rgba(98,98,98,0.8);
+  background: #EEF2E6;
+  border-radius: 15px;
+  width: 50%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.point_box {
+  width: 60%;
+  position: relative;
+  padding: 0.5em 1em;
+  border: solid 3px #333;
+  border-radius: 8px;
+  background-color: white;
+  margin: 2vw 0;
+  }
+  .point_box .point-title {
+  position: absolute;
+  display: inline-block;
+  top: -13px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 19px;
+  background: black;
+  color: white;
+  font-weight: bold;
+  padding-block: 3px;
+  border: black 2px solid;
+  border-radius: 5px;
+  }
+  
+  .point_box p {
+  margin: 0; 
+  padding: 0;
+  padding-top: 1.5vw;
+  }

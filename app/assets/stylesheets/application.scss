@@ -23,6 +23,11 @@
   font-family: "hunter";
 }
 
+@font-face{
+  font-family: "delta";
+  src: url('DelaGothicOne-Regular.ttf') format('truetype');
+}
+
 /* ヘッダー */
 header {
   background-color: #3D8361;
@@ -101,11 +106,6 @@ body{
   justify-content: center;
   height: 100%;
 } 
-
-h2{
-  font-family: 'sherif';
-  color:green;
-}
 
 .hidden{
   opacity: 0;

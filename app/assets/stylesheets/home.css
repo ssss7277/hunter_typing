@@ -1,8 +1,3 @@
-@font-face{
-  font-family: "delta";
-  src: url('DelaGothicOne-Regular.ttf') format('truetype');
-}
-
 .logo_font{
   font-family: "delta";
   font-size: 6vw;

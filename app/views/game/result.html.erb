@@ -1,3 +1,9 @@
+<div id="flash" style="display: none;">
+  <% flash.each do |message_type, message| %>
+    <%= message %>
+  <% end %>
+</div>
+
 <div class="result_box">
   <center>
     <%= image_tag 'license_logo.jpg', class: "img license_logo" %>
@@ -27,3 +33,10 @@
     </div>
   </center>
 </div>
+
+<script>
+    var flash_message = document.getElementById("flash").innerHTML.trim();
+    if (flash_message){
+      alert(flash_message);
+    }
+</script>

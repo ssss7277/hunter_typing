@@ -101,6 +101,9 @@ function kana2romeArray(kana){
       'てゅ' : ['t', 'h', 'u'],
       'てぇ' : ['t', 'h', 'e'],
       'てょ' : ['t', 'h', 'o'],
+      'にゃ' : ['n', 'y', 'a'],
+      'にゅ' : ['n', 'y', 'u'],
+      'にょ' : ['n', 'y', 'o'],
       'ひゃ' : ['h', 'y', 'a'],
       'ひぃ' : ['h', 'y', 'i'],
       'ひゅ' : ['h', 'y', 'u'],
@@ -115,6 +118,7 @@ function kana2romeArray(kana){
       'みゅ' : ['m', 'y', 'u'],
       'みぇ' : ['m', 'y', 'e'],
       'みょ' : ['m', 'y', 'o'],
+      'りょ' : ['r', 'y', 'o'],
       'ヴぁ' : ['v', 'a'],
       'ヴぃ' : ['v', 'i'],
       'ヴぇ' : ['v', 'e'],
@@ -144,15 +148,6 @@ function kana2romeArray(kana){
       'ぴゅ' : ['p', 'y', 'u'],
       'ぴぇ' : ['p', 'y', 'e'],
       'ぴょ' : ['p', 'y', 'o'],
-      'ぁ' : ['x', 'a'],
-      'ぃ' : ['x', 'i'],
-      'ぅ' : ['x', 'u'],
-      'ぇ' : ['x', 'e'],
-      'ぉ' : ['x', 'o'],
-      'ゃ' : ['x', 'y', 'a'],
-      'ゅ' : ['x', 'y', 'u'],
-      'ょ' : ['x', 'y', 'o'],
-      'っ' : ['x', 't', 'u'],
       'ヴ' : ['v', 'u'],
       'ー' : ['-'],
       '、' : [', '],
@@ -161,7 +156,18 @@ function kana2romeArray(kana){
   };
   var rome_array = [];
   for (var i = 0; i < kana.length; i++) {
-    rome_array.push(kanamap[kana.charAt(i)]);
+    var keys = Object.keys(kanamap);
+    if (i == kana.length-1){
+      rome_array.push(kanamap[kana.charAt(i)]);
+    }else{
+      if  (keys.includes(kana.charAt(i) + kana.charAt(i+1))){
+        console.log(kana.charAt(i) + kana.charAt(i+1))
+        rome_array.push(kanamap[kana.charAt(i) + kana.charAt(i+1)]);
+        i = i + 1
+      }else{
+        rome_array.push(kanamap[kana.charAt(i)]);
+      }
+    }
   }
   return rome_array;
 }
@@ -255,10 +261,6 @@ function r2h(roman) {
   return hiragana;
 };
 
-
-
-//var rome_q = ["gonn","reorio","kirua","kuroro","goreinu","kurapika","mitosann","togasiyosihiro","kumo","annkokutairiku","kurutazoku","kujiratou","yanngasu"];
-//var kana_q_array = ["ごん","れおりお","きるあ","くろろ","ごれいぬ","くらぴか","みとさん","とがしよしひろ","くも","あんこくたいりく","くるたぞく","くじらとう","やんがす"];
 var rome_q_array = get_question()["rome"];
 var kana_q_array = get_question()["kana"];
 var q_no = Math.floor( Math.random() * rome_q_array.length);
@@ -433,11 +435,11 @@ function get_question(){
   path_name = location.pathname;
   kana_q_arrays = [];
   if(path_name=="/nomal_easy" || path_name=="/rank_easy"){
-    kana_q_arrays = ["ごん", "きるあ", "くらぴか", "れおりお"];
+    kana_q_arrays = ["あ","い","う","え","お","か","き","く","け","こ","た","ち","つ","て","と","な","に","ぬ","ね","の","は","ひ","ふ","へ","ほ","ま","み","む","め","も","や","ゆ","よ","ら","り","る","れ","ろ","わ","を","ん"];
   }else if(path_name=="/nomal_medium" || path_name=="/rank_medium"){
-    kana_q_arrays = ["りょだん"];
+    kana_q_arrays = ["ごん", "きるあ", "くらぴか", "れおりお"];
   }else if(path_name=="/nomal_hard" || path_name=="/rank_hard"){
-    kana_q_arrays = ["はんぞー"];
+    kana_q_arrays = ["すしのぶるごーにゅふう","いえてぃーがーる"];
   }
   var rome_qs = [];
   for (var i = 0; i < kana_q_arrays.length; i++) {
