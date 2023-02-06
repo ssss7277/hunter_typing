@@ -12,13 +12,13 @@ function kana2romeArray(kana){
       'け' : ['k', 'e'],
       'こ' : ['k', 'o'],
       'さ' : ['s', 'a'],
-      'し' : [["s","h", "i"], ["s", "i"]],
+      'し' : [["shi"], ["si"]],
       'す' : ['s', 'u'],
       'せ' : ['s', 'e'],
       'そ' : ['s', 'o'],
       'た' : ['t', 'a'],
-      'ち' : [["c","h", "i"], ["t", "i"]],
-      'つ' : [["t","s", "u"], ["t", "u"]],
+      'ち' : [["chi"], ["ti"]],
+      'つ' : [["tsu"], ["tu"]],
       'て' : ['t', 'e'],
       'と' : ['t', 'o'],
       'な' : ['n', 'a'],
@@ -28,7 +28,7 @@ function kana2romeArray(kana){
       'の' : ['n', 'o'],
       'は' : ['h', 'a'],
       'ひ' : ['h', 'i'],
-      'ふ' : [["f", "u"], ["h", "u"]],
+      'ふ' : [["fu"], ["hu"]],
       'へ' : ['h', 'e'],
       'ほ' : ['h', 'o'],
       'ま' : ['m', 'a'],
@@ -48,20 +48,20 @@ function kana2romeArray(kana){
       'ゐ' : ['w', 'i'],
       'ゑ' : ['w', 'e'],
       'を' : ["w', 'o"],
-      'ん' : ['n', 'n'],
+      'ん' : [['nn'], ['n']],
       'が' : ['g', 'a'],
       'ぎ' : ['g', 'i'],
       'ぐ' : ['g', 'u'],
       'げ' : ['g', 'e'],
       'ご' : ['g', 'o'],
       'ざ' : ['z', 'a'],
-      'じ' : [["j", "i"], ["z", "i"]],
+      'じ' : [["ji"], ["zi"]],
       'ず' : ['z', 'u'],
       'ぜ' : ['z', 'e'],
       'ぞ' : ['z', 'o'],
       'だ' : ['d', 'a'],
-      'ぢ' : [["j", "i"], ["d", "i"]],
-      'づ' : [["z", "u"], ["d", "u"]],
+      'ぢ' : ["d","i"],
+      'づ' : ["d", "u"],
       'で' : ['d', 'e'],
       'ど' : ['d', 'o'],
       'ば' : ['b', 'a'],
@@ -86,16 +86,16 @@ function kana2romeArray(kana){
       'くゃ' : ['q', 'y', 'a'],
       'くゅ' : ['q', 'y', 'u'],
       'くょ' : ['q', 'y', 'o'],
-      'しゃ' : [["s", "h", "a"], ["s", "y", "a"]],
+      'しゃ' : [["sya"], ["sha"]],
       'しぃ' : ['s', 'y', 'i'],
-      'しゅ' : [["s", "h", "u"], ["s", "y", "u"]],
+      'しゅ' : [["syu"], ["shu"]],
       'しぇ' : ['s', 'y', 'e'],
-      'しょ' : [["s", "h", "o"], ["s", "y", "o"]],
-      'ちゃ' : [["c", "h", "a"], ["t", "y", "a"], ["c", "y", "a"]],
+      'しょ' : [["syo"], ["sho"]],
+      'ちゃ' : [["tya"], ["cha"]],
       'ちぃ' : ['t', 'y', 'i'],
-      'ちゅ' : [["c", "h", "u"], ["t", "y", "u"], ["c", "y", "u"]],
+      'ちゅ' : [["tyu"], ["chu"]],
       'ちぇ' : ['t', 'y', 'e'],
-      'ちょ' : [["c", "h", "o"], ["t", "y", "o"], ["c", "y", "o"]],
+      'ちょ' : [["tyo"], ["cho"]],
       'てゃ' : ['t', 'h', 'a'],
       'てぃ' : ['t', 'h', 'i'],
       'てゅ' : ['t', 'h', 'u'],
@@ -128,12 +128,12 @@ function kana2romeArray(kana){
       'ぎゅ' : ['g', 'y', 'u'],
       'ぎぇ' : ['g', 'y', 'e'],
       'ぎょ' : ['g', 'y', 'o'],
-      'じゃ' : [["j", "a"], ["z", "y", "a"]],
+      'じゃ' : [["ja"], ["zya"]],
       'じぃ' : ['z', 'y', 'i'],
-      'じゅ' : [["j", "u"], ["z", "y", "u"]],
+      'じゅ' : [["ju"], ["zyu"]],
       'じぇ' : ['z', 'y', 'e'],
-      'じょ' : [["j", "o"], ["z", "y", "o"]],
-      'ぢゃ' : [["d", "y", "a"], ["z", "y", "a"]],
+      'じょ' : [["jo"], ["zyo"]],
+      'ぢゃ' : ["d", "y", "a"],
       'ぢぃ' : ['d', 'y', 'i'],
       'ぢゅ' : ['d', 'y', 'u'],
       'ぢぇ' : ['d', 'y', 'e'],
@@ -169,7 +169,69 @@ function kana2romeArray(kana){
       }
     }
   }
+
+  //もしrome_array[i]が[['nn'], ['n']]ならば
+  //rome_array[i+1][0]があ行な行ヤ行の時　または　rome_array[i]がrome_array[rome_array.length -1]の時
+  //[['nn'], ['n']]を['nn']とする
+  console.log(rome_array)
+  for (var i = 0; i < rome_array.length; i++){
+    if (rome_array[i] + "" == [['nn'], ['n']] + ""){
+      if(i == rome_array.length -1){
+      }else{
+        if(   rome_array[i+1][0]==['a'] ||
+              rome_array[i+1][0]==['i'] ||
+              rome_array[i+1][0]==['u'] ||
+              rome_array[i+1][0]==['e'] ||
+              rome_array[i+1][0]==['o'] ||
+              rome_array[i+1][0]==['n'] ||
+              rome_array[i+1][0]==['y']
+        ){
+            rome_array[i] = ['nn'];
+        }
+      }
+
+    }
+  }
   return rome_array;
+}
+
+//配列を合体して全通りの組み合わせを作る
+function romeArray2combinationQArray(rome_array){
+  var new_rome_array = [];
+  for (var i = 0; i < rome_array.length; i++){
+    if (typeof rome_array[i][0] === "string"){
+      for (var n = 0; n < rome_array[i].length; n++){
+        new_rome_array.push(rome_array[i][n]);
+      }
+    }else if (Array.isArray(rome_array[i][0])){
+      new_rome_array.push(rome_array[i]);
+    }
+  }
+  rome_array = new_rome_array;
+  var q_c_array = [];
+  for (var i = 0; i < rome_array.length; i++) {
+    if (Array.isArray(rome_array[i])){
+      if(q_c_array.length === 0){
+        q_c_array = ["", ""];
+      }else{
+        q_c_array = q_c_array.concat(q_c_array);
+      }
+      for (var n = 0; n < q_c_array.length; n++) {
+        if (n < q_c_array.length/2){
+          q_c_array[n] = q_c_array[n] + rome_array[i][0];
+        }else{
+          q_c_array[n] = q_c_array[n] + rome_array[i][1];
+        }
+      }
+    }else if(i == 0){
+      q_c_array.push(rome_array[i]);
+    }else{
+      for (var n = 0; n < q_c_array.length; n++) {
+        q_c_array[n] = q_c_array[n] + rome_array[i];
+      }
+    }
+  }
+  return q_c_array
 }
 
 // 配列を合体させて文字列にする
@@ -264,7 +326,8 @@ function r2h(roman) {
 var rome_q_array = get_question()["rome"];
 var kana_q_array = get_question()["kana"];
 var q_no = Math.floor( Math.random() * rome_q_array.length);
-var rome_q = romeArray2string(rome_q_array[q_no]);
+var q_c_array = romeArray2combinationQArray(rome_q_array[q_no]);
+var rome_q = q_c_array[0];
 var kana_q_no = q_no;
 var q_i = 0;
 var kana_q_i = 0;
@@ -330,6 +393,22 @@ function push_Keydown(event){
     document.getElementsByClassName("hunter")[0].innerHTML = kana_q_array[kana_q_no].substring(kana_q_i, kana_q_len);
   }
 
+
+
+  //正解している書き方を絞る
+  var new_q_c_array = []
+  for (var i = 0; i < q_c_array.length; i++) {
+    if(q_c_array[i].charAt(q_i) == keyCode) {
+      new_q_c_array.push(q_c_array[i])
+    }
+  }
+  if(new_q_c_array.length > 0){
+    q_c_array = new_q_c_array
+    rome_q = q_c_array[0]
+    q_len = rome_q.length
+  }
+
+
   //正解の入力をされた場合
   if (rome_q.charAt(q_i) == keyCode) {
     get_prog();
@@ -353,14 +432,14 @@ function push_Keydown(event){
       //typing_charactersを空っぽにする
       typing_characters = [];
     }
-
     //最後まで打ち終わった場合
     if (q_len == q_i){
       ok.play();
       score++;
       dispScore();
       q_no = Math.floor( Math.random() * rome_q_array.length);
-      rome_q = romeArray2string(rome_q_array[q_no]);
+      q_c_array = romeArray2combinationQArray(rome_q_array[q_no]);
+      rome_q = q_c_array[0];
       kana_q_no = q_no;
       q_i = 0;
       kana_q_i = 0;
@@ -437,7 +516,7 @@ function get_question(){
   if(path_name=="/nomal_easy" || path_name=="/rank_easy"){
     kana_q_arrays = ["あ","い","う","え","お","か","き","く","け","こ","た","ち","つ","て","と","な","に","ぬ","ね","の","は","ひ","ふ","へ","ほ","ま","み","む","め","も","や","ゆ","よ","ら","り","る","れ","ろ","わ","を","ん"];
   }else if(path_name=="/nomal_medium" || path_name=="/rank_medium"){
-    kana_q_arrays = ["ごん", "きるあ", "くらぴか", "れおりお"];
+    kana_q_arrays = ["しんぱい"];
   }else if(path_name=="/nomal_hard" || path_name=="/rank_hard"){
     kana_q_arrays = ["すしのぶるごーにゅふう","いえてぃーがーる"];
   }
