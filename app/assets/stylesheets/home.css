@@ -1,0 +1,63 @@
+.logo_font{
+  font-family: "delta";
+  font-size: 6vw;
+  text-align:  center;
+  margin: 0 auto;
+}
+
+/* 四角ボタン */
+.flat.border {
+  position: relative;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 100%;
+  max-width: 200px;
+  box-sizing: border-box;
+  padding: 10px;
+  background: linear-gradient(135deg, #ffd900, #ff9300);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: 0.3s;
+  border: 2px solid #D6CDA4;
+  background: #fff;
+  color: #D6CDA4;
+  font-size: 2.25vw;
+}
+.flat.border:hover {
+  background: #D6CDA4;
+  color: #fff;
+}
+.flat.border:active, .flat.border:focus {
+  top: 2px;
+}
+
+/* 丸ボタン */
+.btn-circle-flat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: #D6CDA4;
+  color: #fff;
+  width: 11vw;
+  height: 11vw;
+  border-radius: 50%;
+  border: 2px solid #D6CDA4;
+  overflow: hidden;
+  transition: .4s;
+  font-size: 2.25vw;
+  font-weight: bold;
+}
+.btn-circle-flat:hover {
+  border: 2px solid #AA0000;
+  background: #AA0000;
+  color: #fff;
+}
+
+.sns_size{
+  font-size:1.5vw;
+}

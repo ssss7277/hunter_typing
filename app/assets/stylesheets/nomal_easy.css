@@ -1,0 +1,90 @@
+.mode_box {
+  border: #EEF2E6 2px solid;
+  box-shadow: 0px 0px 15px 0px rgba(98,98,98,0.8);
+  background: #EEF2E6;
+  border-radius: 15px;
+  width: 50%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  height: 0 auto;
+  position: static;
+}
+
+.game_box{
+  background: #DDDDDD;
+  border-radius: 15px;
+  width: 100%;
+  margin: 0 auto;
+  position: static;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.game_info{
+  display: flex;
+  justify-content: space-between;
+}
+
+.mode_title{
+  margin-left: 1vw;
+  font-size: 2.5vw;
+}
+
+.time{
+  margin-right: 1vw;
+  font-size: 2.5vw;
+}
+
+.hunt_q{
+  font-size: 6vw;
+  font-weight: bolder; 
+  margin: 0 auto;
+}
+
+.rome_q{
+  margin: 0 auto;
+}
+
+.kana_q{
+  margin: 0 auto;
+}
+
+.game_score{
+  margin: 0 auto;
+}
+
+progress {
+  -webkit-appearance: none;
+}
+progress::-webkit-progress-bar {
+  background-color: #ccc;
+}
+progress::-webkit-progress-value {
+  background-color: cyan;
+}
+
+input[type="button"]{
+  background-color: white;
+    width: auto;
+    height: auto;
+    max-width: 90%;
+    border-radius: 8px;
+    max-height: 100%;
+    border: black 2.5px solid;
+    margin: auto;
+    font-weight: bold;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.4s ease;
+}
+
+input[type="button"]:hover{
+  background-color: black;
+  color: white;
+  }

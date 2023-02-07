@@ -1,0 +1,60 @@
+.area {
+  width: 500px;
+  margin: auto;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+}
+ 
+.tab_class {
+  width: calc(100%/3);
+  height: 50px;
+  background-color: darkgrey;
+  line-height: 50px;
+  font-size: 15px;
+  text-align: center;
+  display: block;
+  float: left;
+  order: -1;
+}
+ 
+input[name="tab_name"] {
+  display: none;
+}
+ 
+input:checked + .tab_class {
+  background-color: #3D8361;
+  color: aliceblue;
+}
+ 
+.content_class {
+  display: none;
+  width: 100%;
+}
+ 
+input:checked + .tab_class + .content_class {
+  display: block;
+}
+ 
+table {
+  border-collapse: collapse;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  min-width: 250px;
+  margin: 0 auto;
+}
+
+th, td {
+  border: 1px solid #333;
+  padding: 10px;
+  text-align: center;
+}
+
+.index_scroll_box {
+  border: 1px solid rgb(213, 213, 213);
+  overflow-y: scroll;
+  margin: 0 auto;
+  width: 100%;
+  height: 500px;
+}

@@ -1,32 +1,48 @@
-<h1>モード選択</h1>
-<%=link_to(nomal_easy_path) do %>
-  <button class="btn btn-secondary btn-lg" >ノーマル：easy</button>
-<%end%>
+<div class="mode_box">
+<h1 class = "mode_title">モード選択</h1>
+  <ul class="list list--1">
+    <ul class="list__list">
+      <li class="mode_name">ノーマルモード</li>
+      <li>
+        <%=link_to(nomal_easy_path) do %>
+          <button class="reset flat border" >EASY</button>
+        <%end%>
+      </li>
+      <li>
+        <%=link_to(nomal_medium_path) do %>
+          <button class="reset flat border" >NOMAL</button>
+        <%end%>
+      </li>
+      <li>
+        <%=link_to(nomal_hard_path) do %>
+          <button class="reset flat border" >HARD</button>
+        <%end%>
+      </li>
+    </ul>
+    <ul class="list__list">
+      <li class="mode_name">ランキングモード</li>
+      <li>
+        <%=link_to(rank_easy_path) do %>
+          <button class="reset flat border" >EASY</button>
+        <%end%>
+      </li>
+      <li>
+        <%=link_to(rank_medium_path) do %>
+          <button class="reset flat border" >NOMAL</button>
+        <%end%>
+      </li>
+      <li>
+        <%=link_to(rank_hard_path) do %>
+          <button class="reset flat border" >HARD</button>
+        <%end%>
+      </li>
+    </ul>
+  </ul>
 
-<%=link_to(nomal_medium_path) do %>
-  <button class="btn btn-secondary btn-lg" >ノーマル：medium</button>
-<%end%>
-
-<%=link_to(nomal_hard_path) do %>
-  <button class="btn btn-secondary btn-lg" >ノーマル：hard</button>
-<%end%>
-
-<%=link_to(rank_easy_path) do %>
-  <button class="btn btn-secondary btn-lg" >ランク：easy</button>
-<%end%>
-
-<%=link_to(rank_medium_path) do %>
-  <button class="btn btn-secondary btn-lg" >ランク：medium</button>
-<%end%>
-
-<%=link_to(rank_hard_path) do %>
-  <button class="btn btn-secondary btn-lg" >ランク：hard</button>
-<%end%>
-
-<%=link_to(setting_path) do %>
-  <button class="btn btn-secondary btn-lg" >設定</button>
-<%end%>
-
-<%=link_to(root_path) do %>
-  <button class="btn btn-secondary btn-lg" >タイトルに戻る</button>
-<%end%>
+    <%=link_to(setting_path) do %>
+      <button class="reset flat border left" >設定</button>
+    <%end%>
+    <%=link_to(root_path) do %>
+      <button class="reset flat border left" >ホームに戻る</button>
+    <%end%>
+</div>

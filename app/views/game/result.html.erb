@@ -1,18 +1,42 @@
-<center>
-<h1>結果発表</h1>
-<h1>score</h1>
-<h1 id="score" class="text"><%= @result %></h1>
-<%= form_for(@score) do |f| %>
-  <%= f.text_field :name %>
-  <%= f.hidden_field :score, value: @result %>
-  <%= f.hidden_field :level, value: @level %>
-  <%= f.submit "ランキングに登録", class: "btn btn-primary" %>
-  <%= link_to 'Twitter', "http://twitter.com/share?url=#{"https://translate.google.com/?hl=ja&tab=TT"}/&text=#{@result}オーラ貸付！ハンター打でハンター文字を覚えよう！&hashtags=ハンター打", title: 'Twitter', target: '_blank' %>
-<% end %>
-<%= link_to :back do %>
-  <button>再挑戦</button>
-<% end %>
-<%=link_to(root_path) do %>
-  <button class="btn btn-secondary btn-lg" >タイトルに戻る</button>
-<%end%>
-</center>
+<div id="flash" style="display: none;">
+  <% flash.each do |message_type, message| %>
+    <%= message %>
+  <% end %>
+</div>
+
+<div class="result_box">
+  <center>
+    <%= image_tag 'license_logo.jpg', class: "img license_logo" %>
+    <%= image_tag 'barcode.jpg', class: "img" %>
+    <div class="score_box">
+      <h1 id="score" class="score"><%= @result %>点</h1>
+      <p class="hunter">
+        はんたーだであそんでくれてどうもありがとう..いまこのぶんしょうがよめているということはもうきみははんたーもじますたーになったということだ..はんたーたちがはっしんしたじょうほうをはんたーもじえすえぬえすでみてみることをおすすめするぞ
+      </p>
+      <% if @level != "0" %>
+        <%= form_for(@score) do |f| %>
+          <%= f.text_field :name, placeholder:"ニックネーム", class: "name_field"%>
+          <%= f.hidden_field :score, value: @result %>
+          <%= f.hidden_field :level, value: @level %>
+          <%= f.submit "ランキングに登録", class: "btn btn-primary" %>
+          <%= link_to "http://twitter.com/share?url=#{"https://translate.google.com/?hl=ja&tab=TT"}/&text=#{@result}オーラ貸付！ハンター打でハンター文字を覚えよう！&hashtags=ハンター打", target: '_blank' do %>
+            <i class="fa-brands fa-twitter sns_size" style='color: #3399FF;'></i>
+          <% end %>
+        <% end %>
+      <% end %>
+      <%= link_to :back do %>
+        <button class="btn">再挑戦</button>
+      <% end %>
+      <%=link_to(root_path) do %>
+        <button class="btn" >タイトルに戻る</button>
+      <%end%>
+    </div>
+  </center>
+</div>
+
+<script>
+    var flash_message = document.getElementById("flash").innerHTML.trim();
+    if (flash_message){
+      alert(flash_message);
+    }
+</script>

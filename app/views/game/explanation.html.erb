@@ -1,10 +1,27 @@
-<h1>遊び方</h1>
-<h1>ルール</h1>
-<h2>制限時間内にハンター文字を読んでタイピング！</h2>
-<%=link_to("https://half-a.net/sozai-page4") do %>
-  <button class="btn btn-secondary btn-lg" >ハンター文字お借りしました(外部サイトが開きます)</button>
-<%end%>
-<h1>練習モード</h1>
-<h2>ふりがな/ローマ字表示でハンター文字を覚えながらタイピング練習をしよう！</h2>
-<h1>ランキングモード</h1>
-<h2>ハンター文字のみのモード！ランキング上位を目指してハイスコアを記録しよう！</h2>
+<div class="explanation_box">
+  <center>
+    <div class="point_box">
+      <span class="point-title">ルール</span>
+      <p>制限時間内にハンター文字を読んでタイピング！
+      <%=link_to("https://half-a.net/sozai-page4") do %>
+        <button class="btn btn-secondary btn-lg" >ハンター文字お借りしました(外部サイトが開きます)</button>
+      <%end%>
+      </p>
+    </div>
+    <div class="point_box">
+      <span class="point-title">ノーマルモード</span>
+      <p>ふりがな/ローマ字表示でハンター文字を覚えながら</br>タイピング練習をしよう！</p>
+    </div>
+    <div class="point_box">
+      <span class="point-title">ランキングモード</span>
+      <p>ハンター文字のみのモード！</br>ランキング上位を目指してハイスコアを記録しよう！</p>
+    </div>
+    <div class="point_box">
+      <span class="point-title">連打ボーナス</span>
+      <p>正しい入力を続ければメーターが貯まり</br>一定数続けられると残り秒数が増える！</p>
+    </div>
+    <%=link_to(root_path) do %>
+      <button class="btn" >タイトルに戻る</button>
+    <%end%>
+  </center>
+</div>

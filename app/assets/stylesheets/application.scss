@@ -1,0 +1,140 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@font-face{
+  font-family: "hunter";
+  src: url('hunter.ttf') format('truetype');
+}
+
+.hunter{
+  font-family: "hunter";
+}
+
+@font-face{
+  font-family: "delta";
+  src: url('DelaGothicOne-Regular.ttf') format('truetype');
+}
+
+/* ヘッダー */
+header {
+  background-color: #3D8361;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  color: #EEF2E6;
+  position: fixed; 
+  top: 0px;
+  width: 100%;
+  height: 10%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.header-logo {
+  font-weight: bold;
+  font-size: 3vw;
+  color: white;
+  font-family: "hunter";
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-left: 1vw;
+}
+
+.header_ul{
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+}
+.header-list {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  font-size: 1.5vw;
+  font-weight: bold;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.header-item--contact {
+  padding: 6px 16px;
+  border-radius: 6px;
+}
+
+ul {
+  justify-content: center;
+  list-style: none;
+  margin: 5px;
+}
+
+div#content {
+  padding-top: 15vh;
+  padding-bottom: 15vh;
+  height: 70vh;
+}
+
+body{
+  height: 120px; 
+  font-family: 'sherif';
+  color: black;
+  background-color: whitesmoke;
+  overflow: hidden;
+  margin: 0%;
+}
+
+.box {
+  border: #EEF2E6 2px solid;
+  box-shadow: 0px 0px 15px 0px rgba(98,98,98,0.8);
+  background: #EEF2E6;
+  border-radius: 15px;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+} 
+
+.hidden{
+  opacity: 0;
+}
+
+a {
+  text-decoration: none;
+    color: #EEF2E6;
+}
+
+footer {
+  width: 100%;
+  height: 10%;
+  bottom: 0px;
+  text-align: center;
+  background-color: #3D8361;
+  position: fixed;
+  bottom: 0px;
+  margin: 0px;
+  padding: 0px;
+  color: #fff;
+  font-size: 1.5vw;
+}
+
+#footerWrap{
+	width:100%;
+}
+
+.left{
+  display:flex;
+}
+
