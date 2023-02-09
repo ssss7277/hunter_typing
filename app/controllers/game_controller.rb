@@ -5,6 +5,18 @@ class GameController < ApplicationController
   def home
   end
 
+  def encode_ja(url)
+    ret = ""
+    url.split(//).each do |c|
+      if  /[-_.!~*'()a-zA-Z0-9;\/\?:@&=+$,%#]/ =~ c
+        ret.concat(c)
+      else
+        ret.concat(CGI.escape(c))
+      end
+    end
+    return ret
+  end
+
   def explanation
   end
 

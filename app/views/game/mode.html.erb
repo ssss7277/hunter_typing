@@ -22,17 +22,17 @@
     <ul class="list__list">
       <li class="mode_name">ランキングモード</li>
       <li>
-        <%=link_to(rank_easy_path) do %>
+        <%=link_to(rank_easy_path, class: "rank_easy") do %>
           <button class="reset flat border" >EASY</button>
         <%end%>
       </li>
       <li>
-        <%=link_to(rank_medium_path) do %>
+        <%=link_to(rank_medium_path, class: "rank_medium") do %>
           <button class="reset flat border" >NOMAL</button>
         <%end%>
       </li>
       <li>
-        <%=link_to(rank_hard_path) do %>
+        <%=link_to(rank_hard_path, class: "rank_hard") do %>
           <button class="reset flat border" >HARD</button>
         <%end%>
       </li>
