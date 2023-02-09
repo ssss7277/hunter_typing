@@ -5,12 +5,12 @@
 		</br>
 		<%= link_to("遊び方", explanation_path, {class: "reset flat border"}) %>
 		<%= link_to("設定", setting_path, {class: "reset flat border"}) %>
-		<%= link_to 'Twitter', "http://twitter.com/share?url=#{"https://translate.google.com/?hl=ja&tab=TT"}/&text=ハンター打でハンター文字を覚えよう！&hashtags=ハンター打", title: 'Twitter', target: '_blank' %>
 		<%= link_to "http://twitter.com/share?url=#{"https://translate.google.com/?hl=ja&tab=TT"}/&text=ハンター打でハンター文字を覚えよう！&hashtags=ハンター打", target: '_blank' do %>
-			<i class="fa-brands fa-twitter sns_size" style='color: #3399FF;'></i>シェア
+			<i class="fa-brands fa-twitter sns_size" style='color: #3399FF;'></i>
 		<% end %>
 		<div class="line-it-button" data-lang="ja" data-type="share-b" data-env="REAL" data-url="https://translate.google.com/?hl=ja&tab=TT" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
 			<script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
 		</div>
 	</center>
 </div>
+# <% uri = URI.encode_www_form_component("http://twitter.com/share?url=#{"https://translate.google.com/?hl=ja&tab=TT"}/&text=ハンター打でハンター文字を覚えよう！&hashtags=ハンター打") %>
